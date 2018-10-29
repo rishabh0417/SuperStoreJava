@@ -7,18 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="454.0" layoutY="332.0" mnemonicParsing="false" text="Checkout" />
-      <ListView layoutX="23.0" layoutY="72.0" prefHeight="316.0" prefWidth="334.0" />
+      <Button layoutX="504.0" layoutY="343.0" mnemonicParsing="false" text="Checkout" />
+      <ListView layoutX="23.0" layoutY="70.0" prefHeight="293.0" prefWidth="365.0" />
       <Label layoutX="23.0" layoutY="29.0" text="Cart">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="365.0" layoutY="175.0" mnemonicParsing="false" text="Remove" />
-      <Button layoutX="471.0" layoutY="175.0" mnemonicParsing="false" text="Update" />
-      <TextField layoutX="471.0" layoutY="135.0" prefHeight="25.0" prefWidth="66.0" promptText="Quantity" />
+      <Button layoutX="412.0" layoutY="343.0" mnemonicParsing="false" text="Remove" />
+      <Button layoutX="482.0" layoutY="175.0" mnemonicParsing="false" text="Update" />
+      <TextField layoutX="409.0" layoutY="175.0" prefHeight="25.0" prefWidth="66.0" promptText="Quantity" />
    </children>
 </AnchorPane>
