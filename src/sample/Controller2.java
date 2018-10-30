@@ -42,7 +42,33 @@ public class Controller2 {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EndUserAddBudgetView.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
-            stage.setScene(new Scene(root, 300, 300));
+            stage.setScene(new Scene(root, 300, 200));
+            stage.show();
+        } catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    @FXML
+    private void storeBrowse(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreBrowserView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 650, 500));
+            stage.show();
+        } catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    @FXML
+    private void itemSearch(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EndUserSearchResultsView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 650, 500));
             stage.show();
         } catch (Exception e){
             System.out.println(e);
