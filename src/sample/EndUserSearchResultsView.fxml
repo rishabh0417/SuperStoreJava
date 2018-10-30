@@ -12,12 +12,21 @@
    <children>
       <Label layoutX="28.0" layoutY="21.0" text="Search Results">
          <font>
-            <Font size="20.0" />
+            <Font size="29.0" />
          </font>
       </Label>
-      <ListView layoutX="28.0" layoutY="72.0" prefHeight="300.0" prefWidth="328.0" />
-      <CheckBox layoutX="391.0" layoutY="72.0" mnemonicParsing="false" text="Sort (A-Z)" />
-      <Button layoutX="388.0" layoutY="347.0" mnemonicParsing="false" text="Add to Cart" />
-      <TextField layoutX="388.0" layoutY="309.0" prefHeight="25.0" prefWidth="107.0" promptText="Quantity to add..." />
+      <ListView layoutX="28.0" layoutY="72.0" prefHeight="300.0" prefWidth="376.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
+      <CheckBox layoutX="421.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Sort (A-Z)">
+         <font>
+            <Font size="16.0" />
+         </font></CheckBox>
+      <Button layoutX="465.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-background-insets: 0 0 0 0;" text="Add to Cart">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <TextField layoutX="421.0" layoutY="277.0" prefHeight="39.0" prefWidth="151.0" promptText="Quantity to add..." style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
    </children>
 </AnchorPane>

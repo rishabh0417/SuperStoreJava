@@ -9,15 +9,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="482.0" layoutY="343.0" mnemonicParsing="false" text="Checkout" />
-      <ListView layoutX="23.0" layoutY="70.0" prefHeight="293.0" prefWidth="365.0" />
-      <Label layoutX="23.0" layoutY="29.0" text="Cart">
+      <Button layoutX="489.0" layoutY="324.0" mnemonicParsing="false" style="-fx-border-color: #000000; -fx-background-color: #ffffff; -fx-background-insets: 0 0 0 0;" text="Checkout">
          <font>
-            <Font size="20.0" />
+            <Font size="16.0" />
+         </font></Button>
+      <ListView layoutX="23.0" layoutY="70.0" prefHeight="293.0" prefWidth="365.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
+      <Label layoutX="23.0" layoutY="24.0" text="Cart">
+         <font>
+            <Font size="30.0" />
          </font>
       </Label>
-      <Button layoutX="412.0" layoutY="343.0" mnemonicParsing="false" text="Remove" />
-      <Button layoutX="482.0" layoutY="175.0" mnemonicParsing="false" text="Update" />
-      <TextField layoutX="409.0" layoutY="175.0" prefHeight="25.0" prefWidth="66.0" promptText="Quantity" />
+      <Button layoutX="400.0" layoutY="324.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-background-insets: 0 0 0 0;" text="Remove">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Button layoutX="400.0" layoutY="116.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-background-insets: 0 0 0 0;" text="Update">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <TextField layoutX="400.0" layoutY="70.0" prefHeight="39.0" prefWidth="120.0" promptText="Quantity" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
    </children>
 </AnchorPane>

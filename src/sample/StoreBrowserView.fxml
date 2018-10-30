@@ -9,13 +9,19 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ListView layoutX="31.0" layoutY="49.0" prefHeight="304.0" prefWidth="362.0" />
-      <Label layoutX="31.0" layoutY="14.0" text="Store Browser">
+      <ListView layoutX="31.0" layoutY="61.0" prefHeight="292.0" prefWidth="362.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
+      <Label layoutX="31.0" layoutY="14.0" prefHeight="39.0" prefWidth="178.0" text="Store Browser">
          <font>
-            <Font size="20.0" />
+            <Font size="27.0" />
          </font>
       </Label>
-      <CheckBox layoutX="418.0" layoutY="336.0" mnemonicParsing="false" text="Sort" />
-      <Button layoutX="412.0" layoutY="61.0" mnemonicParsing="false" text="Expand" />
+      <CheckBox layoutX="421.0" layoutY="328.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Sort">
+         <font>
+            <Font size="16.0" />
+         </font></CheckBox>
+      <Button layoutX="412.0" layoutY="61.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="Expand">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>
