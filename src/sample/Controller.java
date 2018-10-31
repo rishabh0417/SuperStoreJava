@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,17 +43,22 @@ public class Controller {
     }
 
     @FXML
-    private void Clicked(){
+    private void Clicked(MouseEvent event){
+
+/*        Node n = (Node) event.getSource();
+        Parent p = (Parent) n.getParent().getParent();
+        p.setVisible(false);
+        System.out.println(p);*/
 //        usr.setText("Login done");
         String s1 = usr.getText();
         try {
             Controller.name = s1;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EndUserView.fxml"));
             Parent root = FXMLLoader.load(getClass().getResource("EndUserView.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root, 650, 500));
+//            Stage stage = new Stage();
+            Main.MainStage.setScene(new Scene(root, 650, 500));
             Controller.name = s1;
-            stage.show();
+            Main.MainStage.show();
         } catch (Exception e){
             System.out.println(e);
         }

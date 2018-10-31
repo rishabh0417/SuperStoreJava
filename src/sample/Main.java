@@ -11,8 +11,12 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public static Stage MainStage;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+
+        MainStage = primaryStage;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginView.fxml"));
         Parent root = loader.load();
         primaryStage.setTitle("Hello World");
@@ -22,7 +26,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-
         launch(args);
     }
 }
