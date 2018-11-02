@@ -52,7 +52,7 @@ public class Controller2 {
     @FXML
     private void storeBrowse(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreBrowserView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EndUserStoreBrowserView.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root, 650, 500));
