@@ -2,7 +2,12 @@ package Backend;
 
 import java.io.Serializable;
 
-public class Product implements Serializable {
+public class Product implements Serializable, Comparable<Product> {
+
+    @Override
+    public int compareTo(Product o) {
+        return this.name.compareTo(o.name);
+    }
 
     final private String name;
     private int units;
