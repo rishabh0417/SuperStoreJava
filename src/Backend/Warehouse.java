@@ -6,9 +6,9 @@ import java.util.List;
 
 public class Warehouse implements Serializable {
 
-    String id;
-    Database warehouse_inventory;
-    List<Store> store_list;
+    public String id;
+    public Database warehouse_inventory;
+    public List<Store> store_list;
 
     public Warehouse(){
         warehouse_inventory = new Database();
@@ -18,4 +18,11 @@ public class Warehouse implements Serializable {
     public void acknowledge(Store s){
 
     }
+
+    @Override
+    public String toString() {
+        return this.id;
+    }
+
+
 }

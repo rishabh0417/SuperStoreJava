@@ -1,3 +1,5 @@
+package Frontend;
+
 import Backend.Store;
 import Backend.SuperStore;
 import Backend.SuperUser;
@@ -11,5 +13,7 @@ public class DATA {
     public static List<Store> list_of_stores;
     public static List<Warehouse> list_of_warehouses;
     public static String path;
+    public static Warehouse warehouse;
+    public static Store store;
 
 }

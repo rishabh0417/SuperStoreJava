@@ -13,10 +13,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
+        DATA data = new DATA();
         MainStage = primaryStage;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SUInitialInfo.fxml"));
         Parent root = loader.load();
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Welcome Super User");
         primaryStage.setScene(new Scene(root, 650, 500));
         primaryStage.show();
     }

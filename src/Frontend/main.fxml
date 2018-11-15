@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="426.0" text="Main" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <SplitPane dividerPositions="0.25, 0.5, 0.75" layoutX="-2.0" orientation="VERTICAL" prefHeight="374.0" prefWidth="600.0">
+              <items>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1F1312#1F1312;">
+                     <children>
+                        <Label layoutX="161.0" layoutY="33.0" prefHeight="17.0" prefWidth="103.0" text="Super User" textFill="WHITE">
+                           <font>
+                              <Font name="Futura Medium" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1F1312#1F1312;">
+                     <children>
+                        <Label layoutX="129.0" layoutY="31.0" prefHeight="23.0" prefWidth="148.0" text="Warehouse Admin" textFill="WHITE">
+                           <font>
+                              <Font name="Futura Medium" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #1F1312#1F1312;">
+                     <children>
+                        <Label layoutX="159.0" layoutY="31.0" prefHeight="23.0" prefWidth="97.0" text="Store Admin" textFill="WHITE">
+                           <font>
+                              <Font name="Futura Medium" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #1F1312#1F1312;">
+                     <children>
+                        <Label layoutX="169.0" layoutY="33.0" prefHeight="23.0" prefWidth="77.0" text="End User" textFill="WHITE">
+                           <font>
+                              <Font name="Futura Medium" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children></AnchorPane>
+  </content>
+</TitledPane>

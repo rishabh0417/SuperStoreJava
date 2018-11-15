@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="387.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ComboBox layoutX="212.0" layoutY="128.0" prefWidth="150.0" />
+      <Button layoutX="258.0" layoutY="248.0" mnemonicParsing="false" text="Select" />
+      <Label layoutX="212.0" layoutY="82.0" text="Selct Store" />
+   </children>
+</AnchorPane>
