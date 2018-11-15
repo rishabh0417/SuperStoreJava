@@ -20,7 +20,7 @@ public class Controller2 {
 
     @FXML
     private void initialize(){
-        userName.setText(Controller.name);
+        userName.setText(LoginViewController.name);
     }
 
     @FXML

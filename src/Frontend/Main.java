@@ -15,7 +15,7 @@ public class Main extends Application {
 
         DATA data = new DATA();
         MainStage = primaryStage;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("SUInitialInfo.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
         Parent root = loader.load();
         primaryStage.setTitle("Welcome Super User");
         primaryStage.setScene(new Scene(root, 650, 500));

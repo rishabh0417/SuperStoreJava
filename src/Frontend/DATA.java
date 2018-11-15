@@ -1,13 +1,11 @@
 package Frontend;
 
-import Backend.Store;
-import Backend.SuperStore;
-import Backend.SuperUser;
-import Backend.Warehouse;
+import Backend.*;
 
 import java.util.List;
 
 public class DATA {
+    public static boolean isSuperUser;
     public static SuperStore superStore;
     public static SuperUser current_super_user;
     public static List<Store> list_of_stores;
@@ -15,5 +13,10 @@ public class DATA {
     public static String path;
     public static Warehouse warehouse;
     public static Store store;
+    public static String currentCategoryString = "root";
+    public static Category currentCategory;
+
+    public DATA(){
+    }
 
 }

@@ -9,13 +9,16 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-import static Frontend.Main.MainStage;
+import static Frontend.DATA.warehouse;
 
 public class SUInitialInfoController {
 
@@ -78,12 +81,18 @@ public class SUInitialInfoController {
     @FXML
     public void openFromSU(){
 
-        if (DATA.warehouse != null){
-            System.out.println("Warehouse : " + DATA.warehouse.id);
+        DATA.currentCategory = DATA.warehouse.warehouse_inventory.getCategories().get("root") ;
+        Parent root = null;
+        try {
+            Stage stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("SuperUserBrowserView.fxml"));
+            stage.setTitle("WareHouse value : ");
+            stage.setScene(new Scene(root, 600, 500));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        if (DATA.store != null){
-            System.out.println("Store : " + DATA.store.id);
-        }
+
     }
 
 }
