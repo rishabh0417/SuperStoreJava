@@ -36,6 +36,7 @@ public class BackendTester {
         try {
             w3.warehouse_inventory.insert("root>phone","iphone");
             w3.warehouse_inventory.insert("root>phone","oneplus");
+            w3.warehouse_inventory.insert("root>phone>idol","duh");
             w3.warehouse_inventory.insert("root>new","6tOneplus");
             w3.warehouse_inventory.insert("root>new","samsung");
             w3.warehouse_inventory.insert("root>elec>house","toaster");
