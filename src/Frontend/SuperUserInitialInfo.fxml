@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.SUInitialInfoController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.SuperUserInitialInfoController">
    <children>
       <Label layoutX="31.0" layoutY="23.0" text="List of Warehouses and Stores">
          <font>
@@ -26,5 +26,6 @@
          </font>
       </Label>
       <Button layoutX="31.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#openFromSU" text="Open" />
+      <Button layoutX="523.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#to_main_menu" text="Carry On" />
    </children>
 </AnchorPane>

@@ -51,7 +51,7 @@ public class LoginViewController {
         if (DATA.isSuperUser) {
             if (usr.getText().equalsIgnoreCase("admin") && pswd.getText().equalsIgnoreCase("super")){
                 try {
-                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("SUInitialInfo.fxml")), 600, 500));
+                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("SuperUserInitialInfo.fxml")), 600, 500));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

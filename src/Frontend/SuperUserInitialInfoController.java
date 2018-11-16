@@ -20,7 +20,7 @@ import java.io.ObjectInputStream;
 
 import static Frontend.DATA.warehouse;
 
-public class SUInitialInfoController {
+public class SuperUserInitialInfoController {
 
    @FXML
    public ListView<Store> ListOfStores;
@@ -76,6 +76,13 @@ public class SUInitialInfoController {
     }
 
 
+    @FXML public void to_main_menu(){
+        try{
+            Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("superUser.fxml")) , 600, 500));
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+    }
 
 
     @FXML

@@ -39,6 +39,7 @@ public class SuperUserBrowserViewController {
     public void open_button(){
         Parent root = null;
         try {
+
             Stage stage = new Stage();
             root = FXMLLoader.load(getClass().getResource("SuperUserBrowserView.fxml"));
             stage.setTitle("=== WareHouse ===");
