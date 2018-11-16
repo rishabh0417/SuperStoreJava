@@ -15,6 +15,8 @@ public class DATA {
     public static Store store;
     public static String currentCategoryString = "root";
     public static Category currentCategory;
+    public static int create_new_user_selection;
+//    1 : means wareshouse and 2 : means store.
 
     public DATA(){
     }

@@ -7,18 +7,21 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane fx:controller="Frontend.superUserController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="574.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="574.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.superUserController">
   <tabs>
     <Tab text="Create">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <RadioButton layoutX="76.0" layoutY="100.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" text="Warehouse Admin" />
-                  <RadioButton layoutX="76.0" layoutY="152.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="110.0" text="Store Admin" />
-                  <Button layoutX="81.0" layoutY="288.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="67.0" text="Next" />
-                  <TextField layoutX="81.0" layoutY="215.0" />
+                  <RadioButton fx:id="radio_wareshouse_creation" layoutX="76.0" layoutY="100.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" text="Warehouse Admin">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="one" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="radio_store_creation" layoutX="76.0" layoutY="152.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="110.0" text="Store Admin" toggleGroup="$one" />
+                  <Button layoutX="76.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#create_new_user" prefHeight="38.0" prefWidth="67.0" text="Next" />
                </children></AnchorPane>
       </content>
     </Tab>

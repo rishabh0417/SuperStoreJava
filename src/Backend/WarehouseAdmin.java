@@ -29,9 +29,6 @@ public class WarehouseAdmin extends User {
 
     }
 
-
-
-
     public List<Warehouse> getList_of_warehouses() {
         return list_of_warehouses;
     }
