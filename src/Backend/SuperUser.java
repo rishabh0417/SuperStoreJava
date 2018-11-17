@@ -15,15 +15,6 @@ public class SuperUser extends User {
         password = b;
     }
 
-
-
-
-
-
-
-
-
-
 //    Serialization and Deserialization
     public static void Serialize(SuperStore sa, String file) throws IOException {
         ObjectOutputStream oStream = null;

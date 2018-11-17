@@ -29,29 +29,6 @@ public class SuperUserInitialInfoController {
     @FXML
     private void initialize(){
 
-        ObjectInputStream inputStream = null;
-        SuperStore sa = null;
-
-        try{
-            inputStream = new ObjectInputStream(new FileInputStream("src/Config.txt"));
-            sa = (SuperStore) inputStream.readObject();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                inputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        DATA.list_of_stores = sa.getList_of_store();
-        DATA.list_of_warehouses = sa.getList_of_warehouse();
-
         ListOfStores.setItems(FXCollections.observableList(DATA.list_of_stores));
         ListOfWarehouses.setItems(FXCollections.observableList(DATA.list_of_warehouses));
 

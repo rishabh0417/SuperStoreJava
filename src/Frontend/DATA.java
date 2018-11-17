@@ -2,6 +2,7 @@ package Frontend;
 
 import Backend.*;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class DATA {
@@ -16,9 +17,14 @@ public class DATA {
     public static String currentCategoryString = "root";
     public static Category currentCategory;
     public static int create_new_user_selection;
+    public static List<WarehouseAdmin> list_of_warehouseAdmins;
+    public static List<StoreAdmin> list_of_storeAdmins;
+
 //    1 : means wareshouse and 2 : means store.
 
     public DATA(){
+        list_of_warehouseAdmins = new LinkedList<>();
+        list_of_storeAdmins = new LinkedList<>();
     }
 
 }

@@ -16,9 +16,9 @@ public class superUserController {
     public void create_new_user(){
 
         if (radio_wareshouse_creation.isSelected()){
-
+            DATA.create_new_user_selection = 1;
         }else{
-
+            DATA.create_new_user_selection = 2;
         }
 
         try {

@@ -3,6 +3,7 @@ package Backend;
 import java.util.List;
 
 public class WarehouseAdmin extends User {
+
     private List<Warehouse> list_of_warehouses;
     private Boolean messageReceivedFlag;
     private Message messageReceived;
@@ -52,4 +53,13 @@ public class WarehouseAdmin extends User {
     public void setWarehouse(Warehouse warehouse) {
         this.warehouse = warehouse;
     }
+
+    public String getUsername(){ return username; }
+
+    public void setUsername(String s){ this.username = s; }
+
+    public String getPassword(){ return password; }
+
+    public void setPassword(String s){ this.password = s; }
+
 }

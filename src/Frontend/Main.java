@@ -1,10 +1,16 @@
 package Frontend;
 
+import Backend.SuperStore;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 public class Main extends Application {
 
@@ -12,6 +18,33 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
+        ObjectInputStream inputStream = null;
+        SuperStore sa = null;
+
+        try{
+            inputStream = new ObjectInputStream(new FileInputStream("src/Config.txt"));
+            sa = (SuperStore) inputStream.readObject();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        DATA.superStore = sa;
+
+        DATA.list_of_stores = sa.getList_of_store();
+        DATA.list_of_warehouses = sa.getList_of_warehouse();
+
 
         DATA data = new DATA();
         MainStage = primaryStage;
