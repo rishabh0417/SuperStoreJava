@@ -60,6 +60,11 @@ public class WarehouseAdmin extends User {
 
     public String getPassword(){ return password; }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public void setPassword(String s){ this.password = s; }
 
 }
