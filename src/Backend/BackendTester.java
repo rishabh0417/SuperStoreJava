@@ -6,7 +6,7 @@ public class BackendTester {
 
     public static void main(String[] args) {
 
-        int test_mode = 0;
+        int test_mode = 2;
 
         if (test_mode == 1) {
             Warehouse w1 = new Warehouse();
@@ -107,7 +107,7 @@ public class BackendTester {
         } else if (test_mode == 2){
             try {
                 SuperStore sa = Deserialize("src/Config.txt");
-                System.out.println(sa.getList_of_store_admins());
+                System.out.println(sa.getList_of_warehouse_admins());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {

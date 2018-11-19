@@ -29,9 +29,12 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <ComboBox layoutX="212.0" layoutY="128.0" prefWidth="150.0" />
-                  <Button layoutX="258.0" layoutY="248.0" mnemonicParsing="false" text="Select" />
-                  <Label layoutX="212.0" layoutY="82.0" text="Selct Store" />
+                  <ComboBox fx:id="dropdown_store" layoutX="212.0" layoutY="99.0" prefWidth="150.0" />
+                  <Button layoutX="212.0" layoutY="246.0" mnemonicParsing="false" onMouseClicked="#link_warehouse_store" text="Link" />
+                  <Label layoutX="212.0" layoutY="74.0" text="Selct Store" />
+                  <ComboBox fx:id="dropdown_warehouse" layoutX="212.0" layoutY="177.0" prefWidth="150.0" />
+                  <Label layoutX="212.0" layoutY="153.0" text="Select Warehouse" />
+                  <Label fx:id="link_status" layoutX="117.0" layoutY="314.0" />
                </children></AnchorPane>
       </content>
     </Tab>

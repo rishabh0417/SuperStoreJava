@@ -31,7 +31,9 @@ public class SuperUserSetLoginViewController {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Empty fields detected!!!", ButtonType.CLOSE);
             alert.showAndWait();
         }else{
+//            System.out.println(DATA.list_of_warehouseAdmins);
             for (WarehouseAdmin w : DATA.list_of_warehouseAdmins){
+//                System.out.println(w.getUsername());
                 if (w.getUsername().equalsIgnoreCase(username_createUser.getText())){
                     flag_usernameExists = true;
                     user_exists.setText("Username already exists please \n" +
@@ -47,9 +49,11 @@ public class SuperUserSetLoginViewController {
                     if (DATA.create_new_user_selection == 1){
                         WarehouseAdmin w = new WarehouseAdmin(username_createUser.getText(), password_createUser.getText());
                         DATA.superStore.getList_of_warehouse_admins().add(w);
+                        DATA.list_of_warehouseAdmins.add(w);
                     }else{
                         StoreAdmin w1 = new StoreAdmin(username_createUser.getText(), password_createUser.getText());
                         DATA.superStore.getList_of_store_admins().add(w1);
+                        DATA.list_of_storeAdmins.add(w1);
                     }
 
                     try{
@@ -57,6 +61,7 @@ public class SuperUserSetLoginViewController {
                     } catch (IOException e){
                         System.out.println(e.getMessage());
                     }
+
                 }
                 else{
                     pass_matched.setText("Oops! password didn't match!");

@@ -39,14 +39,14 @@ public class Main extends Application {
             }
         }
 
+        DATA data = new DATA();
+
 
         DATA.superStore = sa;
-
         DATA.list_of_stores = sa.getList_of_store();
         DATA.list_of_warehouses = sa.getList_of_warehouse();
-
-
-        DATA data = new DATA();
+        DATA.list_of_warehouseAdmins = sa.getList_of_warehouse_admins();
+        DATA.list_of_storeAdmins = sa.getList_of_store_admins();
         MainStage = primaryStage;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
         Parent root = loader.load();
