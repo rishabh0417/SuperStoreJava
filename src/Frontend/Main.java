@@ -1,5 +1,6 @@
 package Frontend;
 
+import Backend.FileWriter;
 import Backend.SuperStore;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -40,6 +41,7 @@ public class Main extends Application {
         }
 
         DATA data = new DATA();
+        FileWriter fw = new FileWriter();
 
 
         DATA.superStore = sa;

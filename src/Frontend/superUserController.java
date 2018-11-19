@@ -1,5 +1,6 @@
 package Frontend;
 
+import Backend.FileWriter;
 import Backend.Store;
 import Backend.Warehouse;
 import javafx.beans.value.ChangeListener;
@@ -79,5 +80,10 @@ public class superUserController {
             link_status.setTextFill(Color.valueOf("#ff0000"));
         }
 
+        try {
+            FileWriter.Serialize(DATA.superStore);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

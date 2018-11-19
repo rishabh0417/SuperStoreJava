@@ -6,7 +6,7 @@ public class BackendTester {
 
     public static void main(String[] args) {
 
-        int test_mode = 2;
+        int test_mode = 3;
 
         if (test_mode == 1) {
             Warehouse w1 = new Warehouse();
@@ -75,7 +75,7 @@ public class BackendTester {
             s2.linked_warehouse = w2;
 
             Store s3 = new Store();
-            s3.id = "#1";
+            s3.id = "#3";
             try {
                 s3.store_inventory.insert("root>phone", "iphone");
                 s3.store_inventory.insert("root>new", "samsung");
@@ -108,6 +108,22 @@ public class BackendTester {
             try {
                 SuperStore sa = Deserialize("src/Config.txt");
                 System.out.println(sa.getList_of_warehouse_admins());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else if (test_mode == 3){
+            try {
+                SuperStore sa = Deserialize("src/Config.txt");
+//                #1
+                for (Warehouse w : sa.getList_of_warehouse()){
+                    System.out.println(w + " : " + w.store_list);
+                }
+
+                for (Store s : sa.getList_of_store()){
+                    System.out.println(s + " : " + s.linked_warehouse);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
