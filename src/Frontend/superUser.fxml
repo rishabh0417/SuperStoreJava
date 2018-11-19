@@ -42,10 +42,13 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <RadioButton layoutX="81.0" layoutY="85.0" mnemonicParsing="false" text="Warehouse" />
-                  <RadioButton layoutX="81.0" layoutY="132.0" mnemonicParsing="false" text="Store" />
-                  <TextField layoutX="81.0" layoutY="198.0" />
-                  <Button layoutX="98.0" layoutY="288.0" mnemonicParsing="false" text="Search" />
+                  <RadioButton fx:id="radio_warehouse_search" layoutX="81.0" layoutY="85.0" mnemonicParsing="false" text="Warehouse">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="two" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="radio_store_search" layoutX="81.0" layoutY="114.0" mnemonicParsing="false" text="Store" toggleGroup="$two" />
+                  <TextField fx:id="search_input" layoutX="88.0" layoutY="159.0" />
+                  <Button fx:id="search_storeWarehouse" depthTest="ENABLE" layoutX="88.0" layoutY="228.0" mnemonicParsing="false" text="Search" />
                </children></AnchorPane>
         </content>
       </Tab>

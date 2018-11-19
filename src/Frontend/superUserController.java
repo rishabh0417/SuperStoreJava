@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
@@ -21,8 +22,11 @@ public class superUserController {
     @FXML private RadioButton radio_wareshouse_creation;
     @FXML private RadioButton radio_store_creation;
     @FXML private Label link_status;
-    @FXML ComboBox<Store> dropdown_store;
-    @FXML ComboBox<Warehouse> dropdown_warehouse;
+    @FXML private ComboBox<Store> dropdown_store;
+    @FXML private ComboBox<Warehouse> dropdown_warehouse;
+    @FXML private TextField search_input;
+    @FXML private RadioButton radio_warehouse_search;
+    @FXML private RadioButton radio_store_search;
 
     private Store store_selected;
     private Warehouse warehouse_selected;
@@ -55,7 +59,7 @@ public class superUserController {
 
         if (radio_wareshouse_creation.isSelected()){
             DATA.create_new_user_selection = 1;
-        }else{
+        }else if (radio_store_creation.isSelected()){
             DATA.create_new_user_selection = 2;
         }
 
@@ -85,5 +89,9 @@ public class superUserController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void search_storeWarehouse(){
     }
 }
