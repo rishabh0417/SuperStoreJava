@@ -47,7 +47,7 @@
                <font>
                   <Font size="16.0" />
                </font></PasswordField>
-            <Button fx:id="loginBtn" mnemonicParsing="false" onMouseClicked="#Clicked" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="Login">
+            <Button fx:id="loginBtn" mnemonicParsing="false" onKeyPressed="#Clicked" onMouseClicked="#Clicked" style="-fx-border-color: #000000; -fx-background-color: #ffffff;" text="Login">
                <font>
                   <Font size="16.0" />
                </font>

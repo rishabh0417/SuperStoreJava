@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="574.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.superUserController">
   <tabs>
@@ -56,12 +57,20 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <RadioButton layoutX="77.0" layoutY="98.0" mnemonicParsing="false" text="Warehouse" />
-                  <RadioButton layoutX="77.0" layoutY="149.0" mnemonicParsing="false" text="Store" />
-                  <TextField layoutX="80.0" layoutY="221.0" />
-                  <Button layoutX="96.0" layoutY="309.0" mnemonicParsing="false" text="Delete" />
-                  <RadioButton layoutX="77.0" layoutY="124.0" mnemonicParsing="false" text="Warehouse Admin" />
-                  <RadioButton layoutX="77.0" layoutY="179.0" mnemonicParsing="false" text="Store Admin" />
+                  <RadioButton fx:id="radio_del_warehouse" layoutX="77.0" layoutY="98.0" mnemonicParsing="false" text="Warehouse">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="three" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="radio_del_store" layoutX="77.0" layoutY="149.0" mnemonicParsing="false" text="Store" toggleGroup="$three" />
+                  <TextField fx:id="del_input" layoutX="80.0" layoutY="221.0" promptText="Enter the ID" />
+                  <Button layoutX="227.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#delete_user" text="Delete" />
+                  <RadioButton fx:id="radio_del_warehouse_admin" layoutX="77.0" layoutY="124.0" mnemonicParsing="false" text="Warehouse Admin" toggleGroup="$three" />
+                  <RadioButton fx:id="radio_del_store_admin" layoutX="77.0" layoutY="179.0" mnemonicParsing="false" text="Store Admin" toggleGroup="$three" />
+                  <Label fx:id="delete_status" layoutX="50.0" layoutY="344.0" prefHeight="25.0" prefWidth="454.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
         </content>
       </Tab>

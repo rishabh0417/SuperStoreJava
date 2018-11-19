@@ -1,8 +1,6 @@
 package Frontend;
 
-import Backend.FileWriter;
-import Backend.Store;
-import Backend.Warehouse;
+import Backend.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -27,6 +25,15 @@ public class superUserController {
     @FXML private TextField search_input;
     @FXML private RadioButton radio_warehouse_search;
     @FXML private RadioButton radio_store_search;
+
+    @FXML private RadioButton radio_del_warehouse;
+    @FXML private RadioButton radio_del_warehouse_admin;
+    @FXML private RadioButton radio_del_store;
+    @FXML private RadioButton radio_del_store_admin;
+    @FXML private TextField del_input;
+    @FXML private Label delete_status;
+
+
 
     private Store store_selected;
     private Warehouse warehouse_selected;
@@ -93,5 +100,72 @@ public class superUserController {
 
     @FXML
     public void search_storeWarehouse(){
+
+    }
+
+    @FXML
+    public void delete_user(){
+
+        String id = del_input.getText();
+        boolean found = false;
+
+        if (id.equals("")) {
+            delete_status.setTextFill(Color.valueOf("#ff0000"));
+            delete_status.setText("Please Enter all the fields");
+        }else {
+
+            if (radio_del_store.isSelected()) {
+                for (Store a : DATA.list_of_stores){
+                    if (a.getId().equalsIgnoreCase(id)) {
+                        found = true;
+                        DATA.list_of_stores.remove(a);
+                        break;
+                    }
+                }
+
+            } else if (radio_del_store_admin.isSelected()) {
+                for (StoreAdmin a : DATA.list_of_storeAdmins){
+                    if (a.toString().equalsIgnoreCase(id)) {
+                        found = true;
+                        DATA.list_of_storeAdmins.remove(a);
+                        break;
+                    }
+                }
+            } else if (radio_del_warehouse.isSelected()) {
+                for (Warehouse a : DATA.list_of_warehouses){
+                    if (a.id.equalsIgnoreCase(id)) {
+                        found = true;
+                        DATA.list_of_warehouses.remove(a);
+                        break;
+                    }
+                }
+            } else if (radio_del_warehouse_admin.isSelected()) {
+                for (WarehouseAdmin a : DATA.list_of_warehouseAdmins){
+                    if (a.toString().equalsIgnoreCase(id)) {
+                        found = true;
+                        DATA.list_of_warehouseAdmins.remove(a);
+                        break;
+                    }
+                }
+            } else {
+                delete_status.setTextFill(Color.valueOf("#ff0000"));
+                delete_status.setText("Please select some option!");
+            }
+        }
+
+        if (!found){
+            delete_status.setTextFill(Color.valueOf("#ff0000"));
+            delete_status.setText("ID/Username not found!");
+        }else {
+            delete_status.setTextFill(Color.valueOf("#0000ff"));
+            delete_status.setText("Deletion Successful!");
+
+            try {
+                FileWriter.Serialize(DATA.superStore);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }
