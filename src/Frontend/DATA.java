@@ -11,6 +11,8 @@ public class DATA {
     public static boolean isStoreAdmin;
     public static boolean isEndUser;
 
+    public static WarehouseAdmin cur_warehouseAdmin;
+
 
     public static SuperStore superStore;
     public static SuperUser current_super_user;

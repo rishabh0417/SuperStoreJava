@@ -28,6 +28,11 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
+                  <Label fx:id="error_add_page" layoutX="231.0" layoutY="313.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
       </content>
     </Tab>

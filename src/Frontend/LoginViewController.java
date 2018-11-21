@@ -71,6 +71,7 @@ public class LoginViewController {
 
             for (WarehouseAdmin a : DATA.list_of_warehouseAdmins){
                 if (usr.getText().equalsIgnoreCase(a.getUsername()) && pswd.getText().equalsIgnoreCase(a.getPassword())){
+                    DATA.cur_warehouseAdmin = a;
                     flag = true;
                     break;
                 }

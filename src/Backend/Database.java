@@ -137,11 +137,6 @@ public class Database implements Serializable {
 
 //  Exception classes.
 
-class ProductExistsException extends Exception{
-    public ProductExistsException(String message){
-        super(message);
-    }
-}
 
 class ProductNotExistsException extends Exception{
     public ProductNotExistsException(String msg){

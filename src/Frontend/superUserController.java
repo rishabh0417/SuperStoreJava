@@ -17,6 +17,8 @@ import java.io.IOException;
 
 public class superUserController {
 
+    @FXML private TextField id_of_newUser;
+
     @FXML private RadioButton radio_wareshouse_creation;
     @FXML private RadioButton radio_store_creation;
     @FXML private Label link_status;
@@ -30,6 +32,10 @@ public class superUserController {
     @FXML private RadioButton radio_del_warehouse_admin;
     @FXML private RadioButton radio_del_store;
     @FXML private RadioButton radio_del_store_admin;
+
+    @FXML private RadioButton radio_warehouse_creation;
+    @FXML private RadioButton radio_str_creation;
+
     @FXML private TextField del_input;
     @FXML private Label delete_status;
 
@@ -66,14 +72,64 @@ public class superUserController {
 
         if (radio_wareshouse_creation.isSelected()){
             DATA.create_new_user_selection = 1;
+
+            try {
+                Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("SuperUserSetLoginView.fxml"))));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }else if (radio_store_creation.isSelected()){
             DATA.create_new_user_selection = 2;
-        }
 
-        try {
-            Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("SuperUserSetLoginView.fxml"))));
-        } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("SuperUserSetLoginView.fxml"))));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }else if (radio_warehouse_creation.isSelected()){
+
+            Warehouse w = new Warehouse();
+            if (id_of_newUser.getText().equals("")){id_of_newUser.setStyle("-fx-border-color: #ff0000");}
+            else {
+                w.id = id_of_newUser.getText();
+                DATA.list_of_warehouses.add(w);
+
+                try {
+                    w.warehouse_inventory.insert("root", "default");
+                } catch (Backend.ProductExistsException e) {
+                    e.printStackTrace();
+                }
+
+                id_of_newUser.setStyle("-fx-border-color: #0000ff");
+
+                try{
+                    FileWriter.Serialize(DATA.superStore);
+                } catch (IOException e){
+                    System.out.println(e.getStackTrace());
+                }
+            }
+        }else if (radio_str_creation.isSelected()){
+            Store w = new Store();
+            if (id_of_newUser.getText().equals("")){id_of_newUser.setStyle("-fx-border-color: #ff0000");}
+            else {
+                w.id = id_of_newUser.getText();
+                DATA.list_of_stores.add(w);
+
+                try {
+                    w.store_inventory.insert("root", "default");
+                } catch (Backend.ProductExistsException e) {
+                    e.printStackTrace();
+                }
+                id_of_newUser.setStyle("-fx-border-color: #0000ff");
+
+                try{
+                    FileWriter.Serialize(DATA.superStore);
+                } catch (IOException e){
+                    System.out.println(e.getStackTrace());
+                }
+            }
         }
     }
 
@@ -168,4 +224,5 @@ public class superUserController {
         }
 
     }
+
 }

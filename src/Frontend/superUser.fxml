@@ -23,6 +23,9 @@
                      </toggleGroup></RadioButton>
                   <RadioButton fx:id="radio_store_creation" layoutX="76.0" layoutY="152.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="110.0" text="Store Admin" toggleGroup="$one" />
                   <Button layoutX="76.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#create_new_user" prefHeight="38.0" prefWidth="67.0" text="Next" />
+                  <RadioButton fx:id="radio_warehouse_creation" layoutX="337.0" layoutY="105.0" mnemonicParsing="false" text="Warehouse" toggleGroup="$one" />
+                  <RadioButton fx:id="radio_str_creation" layoutX="337.0" layoutY="157.0" mnemonicParsing="false" text="Store" toggleGroup="$one" />
+                  <TextField fx:id="id_of_newUser" layoutX="337.0" layoutY="206.0" promptText="Enter the ID" />
                </children></AnchorPane>
       </content>
     </Tab>
