@@ -48,10 +48,10 @@ public class SuperUserSetLoginViewController {
                     pass_matched.setText("");
                     if (DATA.create_new_user_selection == 1){
                         WarehouseAdmin w = new WarehouseAdmin(username_createUser.getText(), password_createUser.getText());
-                        DATA.superStore.getList_of_warehouse_admins().add(w);
+                        DATA.list_of_warehouseAdmins.add(w);
                     }else{
                         StoreAdmin w1 = new StoreAdmin(username_createUser.getText(), password_createUser.getText());
-                        DATA.superStore.getList_of_store_admins().add(w1);
+                        DATA.list_of_storeAdmins.add(w1);
                     }
 
                     try{

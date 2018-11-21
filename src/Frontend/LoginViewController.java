@@ -1,19 +1,27 @@
 package Frontend;
 
+import Backend.WarehouseAdmin;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class LoginViewController {
 
     static String name = "XXX";
+
+    int data;
+
     @FXML
     private Label userName;
 
@@ -26,6 +34,7 @@ public class LoginViewController {
     @FXML
     private Label failStatus;
 
+
     @FXML
     private URL location;
 
@@ -37,8 +46,7 @@ public class LoginViewController {
         return super.hashCode();
     }
 
-    @FXML
-    private void initialize(){}
+
 
     public LoginViewController(){
         System.out.println("LoginViewController~");
@@ -58,21 +66,26 @@ public class LoginViewController {
             else {
                 failStatus.setText("The Username or Password you \n entered is incorrect!");
             }
-        } else {
-            String s1 = usr.getText();
-            try {
-                LoginViewController.name = s1;
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("EndUserView.fxml"));
-                Parent root = FXMLLoader.load(getClass().getResource("EndUserView.fxml"));
-//            Stage stage = new Stage();
-                Main.MainStage.setScene(new Scene(root, 650, 500));
-                LoginViewController.name = s1;
-                Main.MainStage.show();
-            } catch (Exception e) {
-                System.out.println(e);
+        } else if (DATA.isWarehouseAdmin){
+            boolean flag= false;
+
+            for (WarehouseAdmin a : DATA.list_of_warehouseAdmins){
+                if (usr.getText().equalsIgnoreCase(a.getUsername()) && pswd.getText().equalsIgnoreCase(a.getPassword())){
+                    flag = true;
+                    break;
+                }
+            }
+
+            if (!flag){
+                failStatus.setText("The Username or Password you \n entered is incorrect!");
+            }else{
+                failStatus.setText("");
+                try {
+                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("warehouseAdmin.fxml")), 600, 500));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
-
-
 }

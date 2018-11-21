@@ -12,7 +12,7 @@
          <children>
             <SplitPane dividerPositions="0.25, 0.5, 0.75" layoutX="-2.0" orientation="VERTICAL" prefHeight="374.0" prefWidth="600.0">
               <items>
-                  <AnchorPane onMouseClicked="#super_user_clicked" prefHeight="90.0" prefWidth="463.0" style="-fx-background-color: #1e74ff;">
+                  <AnchorPane fx:id="su" onMouseClicked="#super_user_clicked" prefHeight="90.0" prefWidth="463.0" style="-fx-background-color: #1e74ff;">
                      <children>
                         <Label layoutX="161.0" layoutY="33.0" prefHeight="17.0" prefWidth="103.0" text="Super User" textFill="WHITE">
                            <font>
@@ -21,7 +21,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                  <AnchorPane fx:id="wa" onMouseClicked="#warehouse_clicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
                      <children>
                         <Label layoutX="129.0" layoutY="31.0" prefHeight="23.0" prefWidth="148.0" text="Warehouse Admin">
                            <font>
@@ -30,7 +30,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #1e74ff;">
+                <AnchorPane fx:id="sa" minHeight="0.0" minWidth="0.0" onMouseClicked="#store_clicked" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #1e74ff;">
                      <children>
                         <Label layoutX="159.0" layoutY="31.0" prefHeight="23.0" prefWidth="97.0" text="Store Admin" textFill="WHITE">
                            <font>
@@ -39,7 +39,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #ffffff;">
+                <AnchorPane fx:id="eu" minHeight="0.0" minWidth="0.0" onMouseClicked="#endUser_clicked" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #ffffff;">
                      <children>
                         <Label layoutX="169.0" layoutY="33.0" prefHeight="23.0" prefWidth="77.0" text="End User">
                            <font>

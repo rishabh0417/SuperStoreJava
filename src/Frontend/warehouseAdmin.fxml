@@ -9,19 +9,25 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="580.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="580.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.warehouseAdminController">
   <tabs>
     <Tab text="Add">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <RadioButton layoutX="68.0" layoutY="75.0" mnemonicParsing="false" selected="true" text="Product">
+                  <RadioButton fx:id="radio_product_add" layoutX="68.0" layoutY="75.0" mnemonicParsing="false" selected="true" text="Product">
                      <toggleGroup>
                         <ToggleGroup fx:id="B" />
                      </toggleGroup></RadioButton>
-                  <RadioButton layoutX="68.0" layoutY="124.0" mnemonicParsing="false" text="Category" toggleGroup="$B" />
-                  <Button layoutX="231.0" layoutY="259.0" mnemonicParsing="false" text="Next" />
+                  <RadioButton fx:id="radio_category_add" layoutX="68.0" layoutY="124.0" mnemonicParsing="false" text="Category" toggleGroup="$B" />
+                  <Button layoutX="231.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#add_objects" text="Next" />
+                  <Label fx:id="warehouse_welcome" layoutX="309.0" layoutY="48.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
       </content>
     </Tab>

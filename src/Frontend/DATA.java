@@ -7,6 +7,11 @@ import java.util.List;
 
 public class DATA {
     public static boolean isSuperUser;
+    public static boolean isWarehouseAdmin;
+    public static boolean isStoreAdmin;
+    public static boolean isEndUser;
+
+
     public static SuperStore superStore;
     public static SuperUser current_super_user;
     public static List<Store> list_of_stores;

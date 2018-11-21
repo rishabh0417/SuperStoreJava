@@ -13,6 +13,6 @@ public class User implements Serializable {
 
     public User(String usr, String pas){
         username = usr;
-        pas = password;
+        password = pas;
     }
 }
