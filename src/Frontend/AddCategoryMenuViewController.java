@@ -18,55 +18,53 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AddCategoryMenuViewController implements Initializable {
+public class AddCategoryMenuViewController {
 
-    Category curr_category;
 
     @FXML private Button open_up_rec;
     @FXML private Button add_cat_rec;
 
+    Category curr;
+
     @FXML
     private ListView list_categories;
 
-    @FXML public void initialize(){
-        ;
+    public AddCategoryMenuViewController(){
+
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        List<String> mainList = new ArrayList<>();
-        mainList.addAll(curr_category.getSubCategory().keySet());
+    @FXML public void initialize(){
+        System.out.println("here");
+        Category curr_category = DATA.currentCategory;
 
-        System.out.println(curr_category.getSubCategory().keySet());
-        list_categories.setItems(FXCollections.observableList(mainList));
 
         list_categories.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue observable, String oldValue, String newValue) {
-                curr_category = curr_category.getSubCategory().get(newValue);
+                DATA.currentCategoryString = newValue;
+                DATA.currentCategory = curr_category.getSubCategory().get(DATA.currentCategoryString);
+                System.out.println(DATA.path);
             }
         });
 
+        List<String> mainList = new ArrayList<String>();
+        mainList.addAll(curr_category.getSubCategory().keySet());
+        list_categories.setItems(FXCollections.observableList(mainList));
 
-        open_up_rec.setOnMouseClicked(event -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCategoryMenuView.fxml"));
-                Parent root = loader.load();
-
-                AddCategoryMenuViewController aa = loader.getController();
-                aa.setCat(curr_category);
-
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root, 650, 500));
-                stage.show();
-
-            } catch (IOException e){
-                System.out.println(e.getStackTrace());
-            }
-        });
     }
 
-    public void setCat(Category cat){
-        curr_category = cat;
+    @FXML public void open_next_cat(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCategoryMenuView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 650, 500));
+            stage.show();
+            DATA.path = DATA.path + ">" + DATA.currentCategoryString;
+
+        } catch (IOException e){
+            System.out.println(e.getStackTrace());
+        }
     }
+
 }
