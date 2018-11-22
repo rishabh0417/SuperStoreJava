@@ -1,18 +1,20 @@
 package Frontend;
 
-import Backend.StoreAdmin;
-import Backend.SuperStore;
-import Backend.WarehouseAdmin;
+import Backend.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.*;
 
 public class SuperUserSetLoginViewController {
 
+    @FXML private ChoiceBox dropdown_store;
+
+    private Store str;
+    private Warehouse wa;
 
     @FXML private TextField username_createUser;
     @FXML private TextField password_createUser;
@@ -21,7 +23,22 @@ public class SuperUserSetLoginViewController {
     @FXML private Label pass_matched;
 
     @FXML public void initialize(){
+        if (DATA.create_new_user_selection == 1){
+            dropdown_store.setItems(FXCollections.observableList(DATA.list_of_warehouses));
+        } else{
+            dropdown_store.setItems(FXCollections.observableList(DATA.list_of_stores));
+        }
 
+        dropdown_store.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Object>() {
+            @Override
+            public void changed(ObservableValue<? extends Object> observable, Object oldValue, Object newValue) {
+                if (DATA.create_new_user_selection == 1){
+                    wa = (Warehouse) newValue;
+                }else {
+                    str = (Store) newValue;
+                }
+            }
+        });
     }
 
     @FXML public void create_user(){
@@ -31,13 +48,10 @@ public class SuperUserSetLoginViewController {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Empty fields detected!!!", ButtonType.CLOSE);
             alert.showAndWait();
         }else{
-//            System.out.println(DATA.list_of_warehouseAdmins);
             for (WarehouseAdmin w : DATA.list_of_warehouseAdmins){
-//                System.out.println(w.getUsername());
                 if (w.getUsername().equalsIgnoreCase(username_createUser.getText())){
                     flag_usernameExists = true;
-                    user_exists.setText("Username already exists please \n" +
-                            "Please choose a different username.");
+                    user_exists.setText("Username already exists please \n" + "Please choose a different username.");
                     break;
                 }
             }
@@ -48,9 +62,11 @@ public class SuperUserSetLoginViewController {
                     pass_matched.setText("");
                     if (DATA.create_new_user_selection == 1){
                         WarehouseAdmin w = new WarehouseAdmin(username_createUser.getText(), password_createUser.getText());
+                        w.setWarehouse(wa);
                         DATA.list_of_warehouseAdmins.add(w);
                     }else{
                         StoreAdmin w1 = new StoreAdmin(username_createUser.getText(), password_createUser.getText());
+                        w1.setStore(str);
                         DATA.list_of_storeAdmins.add(w1);
                     }
 
@@ -80,7 +96,7 @@ public class SuperUserSetLoginViewController {
             oStream.close();
         }
     }
-
+// TODO : create dropdown for linking admins with their respective stores.
 
 
 }

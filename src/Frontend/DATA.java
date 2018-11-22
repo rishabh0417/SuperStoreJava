@@ -29,6 +29,9 @@ public class DATA {
 
 //    1 : means wareshouse and 2 : means store.
 
+//    data variables.
+    public static String string1;
+
     public DATA(){
         list_of_warehouseAdmins = new LinkedList<>();
         list_of_storeAdmins = new LinkedList<>();

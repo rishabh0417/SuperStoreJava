@@ -11,4 +11,12 @@ public class StoreAdmin extends User {
     public void generateMessage(){
 
     }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
 }

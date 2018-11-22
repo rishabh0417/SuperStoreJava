@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -39,5 +40,7 @@
       </PasswordField>
       <Label fx:id="pass_matched" layoutX="401.0" layoutY="233.0" textFill="#ff1818" />
       <Label fx:id="user_exists" layoutX="408.0" layoutY="114.0" textFill="#ff1f1f" />
+      <ChoiceBox fx:id="dropdown_store" layoutX="340.0" layoutY="107.0" prefHeight="31.0" prefWidth="171.0" />
+      <Label layoutX="340.0" layoutY="87.0" text="Select Store" />
    </children>
 </AnchorPane>
