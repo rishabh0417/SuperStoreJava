@@ -7,10 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
@@ -93,42 +90,73 @@ public class superUserController {
             Warehouse w = new Warehouse();
             if (id_of_newUser.getText().equals("")){id_of_newUser.setStyle("-fx-border-color: #ff0000");}
             else {
-                w.id = id_of_newUser.getText();
-                DATA.list_of_warehouses.add(w);
 
-                try {
-                    w.warehouse_inventory.insert("root", "default");
-                } catch (Backend.ProductExistsException e) {
-                    e.printStackTrace();
+                Boolean isDuplicate = false;
+
+                for (Warehouse temp_ware : DATA.list_of_warehouses) {
+                    if (temp_ware.toString().equals(id_of_newUser.getText())) {
+                        Tooltip tp = new Tooltip("This userId already exists!");
+                        Tooltip.install(id_of_newUser, tp);
+                        isDuplicate = true;
+                        break;
+                    }
                 }
 
-                id_of_newUser.setStyle("-fx-border-color: #0000ff");
 
-                try{
-                    FileWriter.Serialize(DATA.superStore);
-                } catch (IOException e){
-                    System.out.println(e.getStackTrace());
+                if (!isDuplicate) {
+                    w.id = id_of_newUser.getText();
+                    DATA.list_of_warehouses.add(w);
+
+                    try {
+                        w.warehouse_inventory.insert("root", "default");
+                    } catch (Backend.ProductExistsException e) {
+                        e.printStackTrace();
+                    }
+
+                    id_of_newUser.setStyle("-fx-border-color: #0000ff");
+
+                    try {
+                        FileWriter.Serialize(DATA.superStore);
+                    } catch (IOException e) {
+                        System.out.println(e.getStackTrace());
+                    }
                 }
+                else{ id_of_newUser.setStyle("-fx-border-color: #ff0000");}
             }
         }else if (radio_str_creation.isSelected()){
             Store w = new Store();
             if (id_of_newUser.getText().equals("")){id_of_newUser.setStyle("-fx-border-color: #ff0000");}
             else {
-                w.id = id_of_newUser.getText();
-                DATA.list_of_stores.add(w);
 
-                try {
-                    w.store_inventory.insert("root", "default");
-                } catch (Backend.ProductExistsException e) {
-                    e.printStackTrace();
-                }
-                id_of_newUser.setStyle("-fx-border-color: #0000ff");
 
-                try{
-                    FileWriter.Serialize(DATA.superStore);
-                } catch (IOException e){
-                    System.out.println(e.getStackTrace());
+                Boolean isDuplicate = false;
+
+                for (Store temp_store : DATA.list_of_stores){
+                    if (temp_store.getId().equals(id_of_newUser.getText())){
+                        Tooltip tp = new Tooltip("This userId already exists!");
+                        isDuplicate = true;
+                        Tooltip.install(id_of_newUser, tp);
+                        break;
+                    }
                 }
+                if (!isDuplicate) {
+
+                    w.id = id_of_newUser.getText();
+                    DATA.list_of_stores.add(w);
+
+                    try {
+                        w.store_inventory.insert("root", "default");
+                    } catch (Backend.ProductExistsException e) {
+                        e.printStackTrace();
+                    }
+                    id_of_newUser.setStyle("-fx-border-color: #0000ff");
+
+                    try {
+                        FileWriter.Serialize(DATA.superStore);
+                    } catch (IOException e) {
+                        System.out.println(e.getStackTrace());
+                    }
+                }else { id_of_newUser.setStyle("-fx-border-color: #ff0000"); }
             }
         }
     }
