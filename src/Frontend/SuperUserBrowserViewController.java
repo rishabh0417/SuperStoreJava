@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SuperUserBrowserViewController {
+
+    @FXML private Button btn_open_id;
 
     @FXML
     private ListView browse_results;
@@ -27,6 +30,10 @@ public class SuperUserBrowserViewController {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 DATA.currentCategoryString = newValue;
                 DATA.currentCategory = cat.getSubCategory().get(DATA.currentCategoryString);
+
+                if (DATA.currentCategory.getProduct() != null){
+                    btn_open_id.setDisable(true);
+                }
             }
         });
 

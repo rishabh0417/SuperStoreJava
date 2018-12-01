@@ -13,6 +13,40 @@ public class Product implements Serializable, Comparable<Product> {
     private int units;
     private int cost;
     private String path;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getD() {
+        return D;
+    }
+
+    public void setD(int d) {
+        D = d;
+    }
+
+    public int getH() {
+        return H;
+    }
+
+    public void setH(int h) {
+        H = h;
+    }
+
+    public int getK() {
+        return K;
+    }
+
+    public void setK(int k) {
+        K = k;
+    }
+
     int D, H, K;
 
     public String getPath() {

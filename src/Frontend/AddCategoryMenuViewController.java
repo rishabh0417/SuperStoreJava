@@ -6,19 +6,18 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class AddCategoryMenuViewController {
+
+    Stage stage;
 
 
     @FXML private Button open_up_rec;
@@ -34,6 +33,7 @@ public class AddCategoryMenuViewController {
     }
 
     @FXML public void initialize(){
+        stage = new Stage();
         System.out.println("here");
         Category curr_category = DATA.currentCategory;
 
@@ -43,6 +43,13 @@ public class AddCategoryMenuViewController {
             public void changed(ObservableValue observable, String oldValue, String newValue) {
                 DATA.currentCategoryString = newValue;
                 DATA.currentCategory = curr_category.getSubCategory().get(DATA.currentCategoryString);
+
+
+//                Product exists in it and not a category so disable the button
+                if (DATA.currentCategory.getProduct() != null){
+                    open_up_rec.setDisable(true);
+                }
+
                 System.out.println(DATA.path);
             }
         });
@@ -57,14 +64,22 @@ public class AddCategoryMenuViewController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCategoryMenuView.fxml"));
             Parent root = loader.load();
-            Stage stage = new Stage();
+            stage = new Stage();
             stage.setScene(new Scene(root, 650, 500));
             stage.show();
             DATA.path = DATA.path + ">" + DATA.currentCategoryString;
 
+            stage.setOnCloseRequest(event -> {
+                System.out.println("Windows has been closed.");
+            });
+
         } catch (IOException e){
             System.out.println(e.getStackTrace());
         }
+    }
+
+    @FXML public void set_category(){
+
     }
 
 }
