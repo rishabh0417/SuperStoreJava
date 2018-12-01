@@ -1,6 +1,8 @@
 package Frontend;
 
 import Backend.Category;
+import Backend.FileWriter;
+import Backend.ProductExistsException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -16,9 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddCategoryMenuViewController {
+    private String current_instance;
 
     Stage stage;
-
 
     @FXML private Button open_up_rec;
     @FXML private Button add_cat_rec;
@@ -37,20 +39,17 @@ public class AddCategoryMenuViewController {
         System.out.println("here");
         Category curr_category = DATA.currentCategory;
 
-
         list_categories.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue observable, String oldValue, String newValue) {
                 DATA.currentCategoryString = newValue;
                 DATA.currentCategory = curr_category.getSubCategory().get(DATA.currentCategoryString);
-
-
 //                Product exists in it and not a category so disable the button
-                if (DATA.currentCategory.getProduct() != null){
-                    open_up_rec.setDisable(true);
-                }
 
-                System.out.println(DATA.path);
+                if (DATA.currentCategory.getProduct() != null) open_up_rec.setDisable(true);
+
+//                System.out.println(DATA.path);
+                current_instance = DATA.path;
             }
         });
 
@@ -69,7 +68,10 @@ public class AddCategoryMenuViewController {
             stage.show();
             DATA.path = DATA.path + ">" + DATA.currentCategoryString;
 
+            System.out.println(DATA.path);
+
             stage.setOnCloseRequest(event -> {
+                DATA.path = current_instance;
                 System.out.println("Windows has been closed.");
             });
 
@@ -80,6 +82,16 @@ public class AddCategoryMenuViewController {
 
     @FXML public void set_category(){
 
-    }
+        System.out.println("The value of current Instance.");
+        System.out.println(current_instance+">"+DATA.string1);
 
+        try {
+            DATA.cur_warehouseAdmin.getWarehouse().warehouse_inventory.insert(current_instance+">"+DATA.string1, "");
+            FileWriter.Serialize(DATA.superStore);
+        } catch (ProductExistsException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
