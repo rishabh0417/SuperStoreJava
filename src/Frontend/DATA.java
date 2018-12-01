@@ -37,4 +37,9 @@ public class DATA {
         list_of_storeAdmins = new LinkedList<>();
     }
 
+
+//    more variables
+
+    public static Product curr_prodcut;
+
 }

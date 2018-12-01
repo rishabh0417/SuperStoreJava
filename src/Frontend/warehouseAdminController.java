@@ -30,7 +30,7 @@ public class warehouseAdminController {
         if (wa.getWarehouse()!= null){
             if (radio_product_add.isSelected()){
                 try {
-                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("AddItemMenuView.fxml")), 600, 500));
+                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("AddGUI.fxml")), 600, 500));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

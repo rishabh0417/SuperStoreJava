@@ -27,6 +27,7 @@ public class Database implements Serializable {
     public void insert(String subCategory, Product p) throws ProductExistsException{
 
         Category c = null;
+        Category prev = null;
 //        product = product.trim();
         String[] cats = subCategory.split(">");
         boolean exists = true;
@@ -43,11 +44,11 @@ public class Database implements Serializable {
             }else {
                 exists = false;
                 Category cc = new Category(cats[i]);
+                prev = cc;
                 c.getSubCategory().put(cats[i], cc);
                 c = cc;
             }
         }
-
 
         if (p != null) {
             p.setPath(subCategory + ">" + p.getName());
