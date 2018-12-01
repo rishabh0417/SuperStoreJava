@@ -29,7 +29,11 @@ public class warehouseAdminController {
     @FXML public void add_objects(){
         if (wa.getWarehouse()!= null){
             if (radio_product_add.isSelected()){
-
+                try {
+                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("AddItemMenuView.fxml")), 600, 500));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else if (radio_category_add.isSelected()){
                 try {
                     Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("AddNewCategoryView.fxml")), 600, 500));

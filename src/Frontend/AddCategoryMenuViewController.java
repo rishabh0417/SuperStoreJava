@@ -86,7 +86,7 @@ public class AddCategoryMenuViewController {
         System.out.println(current_instance+">"+DATA.string1);
 
         try {
-            DATA.cur_warehouseAdmin.getWarehouse().warehouse_inventory.insert(current_instance+">"+DATA.string1, "");
+            DATA.cur_warehouseAdmin.getWarehouse().warehouse_inventory.insert(current_instance+">"+DATA.string1, null);
             FileWriter.Serialize(DATA.superStore);
         } catch (ProductExistsException e) {
             e.printStackTrace();

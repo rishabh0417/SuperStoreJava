@@ -108,7 +108,7 @@ public class superUserController {
                     DATA.list_of_warehouses.add(w);
 
                     try {
-                        w.warehouse_inventory.insert("root", "default");
+                        w.warehouse_inventory.insert("root", new Product("default"));
                     } catch (Backend.ProductExistsException e) {
                         e.printStackTrace();
                     }
@@ -145,7 +145,7 @@ public class superUserController {
                     DATA.list_of_stores.add(w);
 
                     try {
-                        w.store_inventory.insert("root", "default");
+                        w.store_inventory.insert("root", new Product("default"));
                     } catch (Backend.ProductExistsException e) {
                         e.printStackTrace();
                     }

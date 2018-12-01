@@ -57,7 +57,7 @@ public class Product implements Serializable, Comparable<Product> {
         this.path = path;
     }
 
-    Product(String name){
+    public Product(String name){
         this.name = name;
         units = 0;
         cost = 0;

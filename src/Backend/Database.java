@@ -24,10 +24,10 @@ public class Database implements Serializable {
         sorted_list_of_product_names = new TreeSet<>();
     }
 
-    public void insert(String subCategory, String product) throws ProductExistsException{
+    public void insert(String subCategory, Product p) throws ProductExistsException{
 
         Category c = null;
-        product = product.trim();
+//        product = product.trim();
         String[] cats = subCategory.split(">");
         boolean exists = true;
 
@@ -48,17 +48,20 @@ public class Database implements Serializable {
             }
         }
 
-        Product p = new Product(product);
-        p.setPath(subCategory + ">" + product);
-        Category cut = new Category(product);
-        cut.setProduct(p);
 
-        if (c.getSubCategory().get(product) == null) {
-            c.getSubCategory().put(product, cut);
-            list_of_product_names.add(p);
-            sorted_list_of_product_names.add(p);
+        if (p != null) {
+            p.setPath(subCategory + ">" + p.getName());
+            Category cut = new Category(p.getName());
+            cut.setProduct(p);
+
+            if (c.getSubCategory().get(p.getName()) == null) {
+                c.getSubCategory().put(p.getName(), cut);
+                list_of_product_names.add(p);
+                sorted_list_of_product_names.add(p);
+            } else throw new ProductExistsException("The given product already exists");
+        } else{
+
         }
-        else throw new ProductExistsException("The given product already exists");
 
     }
 

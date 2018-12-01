@@ -12,11 +12,11 @@ public class BackendTester {
             Warehouse w1 = new Warehouse();
             w1.id = "#123";
             try {
-                w1.warehouse_inventory.insert("root>phone", "iphone");
-                w1.warehouse_inventory.insert("root>phone", "oneplus");
-                w1.warehouse_inventory.insert("root>new", "6tOneplus");
-                w1.warehouse_inventory.insert("root>new", "samsung");
-                w1.warehouse_inventory.insert("root>elec>house", "toaster");
+                w1.warehouse_inventory.insert("root>phone", new Product("iphone"));
+                w1.warehouse_inventory.insert("root>phone", new Product("oneplus"));
+                w1.warehouse_inventory.insert("root>new", new Product("6tOneplus"));
+                w1.warehouse_inventory.insert("root>new", new Product("samsung"));
+                w1.warehouse_inventory.insert("root>elec>house", new Product("toaster"));
             } catch (ProductExistsException e) {
                 System.out.println(e.getMessage());
                 e.printStackTrace();
@@ -25,11 +25,11 @@ public class BackendTester {
             Warehouse w2 = new Warehouse();
             w2.id = "#12";
             try {
-                w2.warehouse_inventory.insert("root>phone", "iphone");
-                w2.warehouse_inventory.insert("root>phone", "oneplus");
-                w2.warehouse_inventory.insert("root>new", "6tOneplus");
-                w2.warehouse_inventory.insert("root>new", "samsung");
-                w2.warehouse_inventory.insert("root>elec>house", "toaster");
+                w2.warehouse_inventory.insert("root>phone", new Product("iphone"));
+                w2.warehouse_inventory.insert("root>phone", new Product("oneplus"));
+                w2.warehouse_inventory.insert("root>new", new Product("6tOneplus"));
+                w2.warehouse_inventory.insert("root>new", new Product("samsung"));
+                w2.warehouse_inventory.insert("root>elec>house", new Product("toaster"));
             } catch (ProductExistsException e) {
                 System.out.println(e.getMessage());
                 e.printStackTrace();
@@ -38,12 +38,11 @@ public class BackendTester {
             Warehouse w3 = new Warehouse();
             w3.id = "#1";
             try {
-                w3.warehouse_inventory.insert("root>phone", "iphone");
-                w3.warehouse_inventory.insert("root>phone", "oneplus");
-                w3.warehouse_inventory.insert("root>phone>idol", "duh");
-                w3.warehouse_inventory.insert("root>new", "6tOneplus");
-                w3.warehouse_inventory.insert("root>new", "samsung");
-                w3.warehouse_inventory.insert("root>elec>house", "toaster");
+                w3.warehouse_inventory.insert("root>phone", new Product("iphone"));
+                w3.warehouse_inventory.insert("root>phone", new Product("oneplus"));
+                w3.warehouse_inventory.insert("root>new", new Product("6tOneplus"));
+                w3.warehouse_inventory.insert("root>new", new Product("samsung"));
+                w3.warehouse_inventory.insert("root>elec>house", new Product("toaster"));
             } catch (ProductExistsException e) {
                 System.out.println(e.getMessage());
                 e.printStackTrace();
@@ -53,9 +52,9 @@ public class BackendTester {
             Store s1 = new Store();
             s1.id = "#1";
             try {
-                s1.store_inventory.insert("root>phone", "iphone");
-                s1.store_inventory.insert("root>new", "samsung");
-                s1.store_inventory.insert("root>elec>house", "toaster");
+                s1.store_inventory.insert("root>phone", new Product("iphone"));
+                s1.store_inventory.insert("root>new", new Product("samsung"));
+                s1.store_inventory.insert("root>elec>house", new Product("toaster"));
             } catch (ProductExistsException e) {
                 System.out.println(e.getMessage());
                 e.printStackTrace();
@@ -65,9 +64,9 @@ public class BackendTester {
             Store s2 = new Store();
             s2.id = "#2";
             try {
-                s2.store_inventory.insert("root>phone", "iphone");
-                s2.store_inventory.insert("root>new", "samsung");
-                s2.store_inventory.insert("root>elec>house", "toaster");
+                s2.store_inventory.insert("root>phone", new Product("iphone"));
+                s2.store_inventory.insert("root>new", new Product("samsung"));
+                s2.store_inventory.insert("root>elec>house", new Product("toaster"));
             } catch (ProductExistsException e) {
                 System.out.println(e.getMessage());
                 e.printStackTrace();
@@ -77,9 +76,9 @@ public class BackendTester {
             Store s3 = new Store();
             s3.id = "#3";
             try {
-                s3.store_inventory.insert("root>phone", "iphone");
-                s3.store_inventory.insert("root>new", "samsung");
-                s3.store_inventory.insert("root>elec>house", "toaster");
+                s3.store_inventory.insert("root>phone", new Product("iphone"));
+                s3.store_inventory.insert("root>new", new Product("samsung"));
+                s3.store_inventory.insert("root>elec>house", new Product("toaster"));
             } catch (ProductExistsException e) {
                 System.out.println(e.getMessage());
                 e.printStackTrace();

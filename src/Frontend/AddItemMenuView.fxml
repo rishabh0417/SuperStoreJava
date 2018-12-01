@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.AddItemMenuViewController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -17,12 +16,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="442.0" layoutY="277.0" mnemonicParsing="false" text="Open">
+            <Button fx:id="btn_opn" layoutX="442.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#open_prod" text="Open">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button layoutX="442.0" layoutY="327.0" mnemonicParsing="false" text="Add Product">
+            <Button layoutX="442.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#add_prod" text="Add Product">
                <font>
                   <Font size="16.0" />
                </font>
