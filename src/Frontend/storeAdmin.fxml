@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="580.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.storeAdminController">
    <tabs>
@@ -41,9 +42,19 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextField layoutX="40.0" layoutY="69.0" />
-                  <Label layoutX="40.0" layoutY="41.0" text="Enter name" />
-                  <Button layoutX="40.0" layoutY="108.0" mnemonicParsing="false" text="Search" />
+                  <Button layoutX="189.0" layoutY="94.0" mnemonicParsing="false" onMouseClicked="#store_del_items" text="Expand" />
+                  <Label layoutX="40.0" layoutY="57.0" text="Select from the following tree">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="del_text" layoutX="40.0" layoutY="94.0" />
+                  <RadioButton fx:id="radio_delete_product" layoutX="386.0" layoutY="48.0" mnemonicParsing="false" selected="true" text="Product">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="aa" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="radio_delete_Category" layoutX="386.0" layoutY="86.0" mnemonicParsing="false" text="Category" toggleGroup="$aa" />
                </children>
             </AnchorPane>
          </content>
