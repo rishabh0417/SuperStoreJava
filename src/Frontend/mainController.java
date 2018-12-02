@@ -42,7 +42,16 @@ public class mainController {
 
     @FXML
     public void endUser_clicked(){
+        try {
+            DATA.isEndUser = true;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EndUserView.fxml"));
+            Parent root = loader.load();
+            Main.MainStage.setTitle("Guest");
+            Main.MainStage.setScene(new Scene(root, 600, 500));
 
+        } catch (IOException e){
+            System.err.println(e);
+        }
     }
 
     private void open_warehouse(){
