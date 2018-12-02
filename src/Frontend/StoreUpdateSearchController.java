@@ -11,13 +11,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+
 import java.io.IOException;
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 
+public class StoreUpdateSearchController {
 
-public class UpdateSearchController {
-
-    @FXML private ListView list_updation;
+    @FXML
+    private ListView list_updation;
     @FXML private CheckBox check_sort;
 
     List<Product> productList;
@@ -30,7 +34,7 @@ public class UpdateSearchController {
     @FXML public void initialize(){
 
         try {
-            productList = DATA.cur_warehouseAdmin.getWarehouse().warehouse_inventory.search(DATA.string2);
+            productList = DATA.cur_storeAdmin.getStore().store_inventory.search(DATA.string2);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -76,5 +80,4 @@ public class UpdateSearchController {
 
 
     }
-
 }
