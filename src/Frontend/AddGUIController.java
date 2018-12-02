@@ -9,6 +9,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * Takes the input of product information
+ */
 public class AddGUIController {
 
 //    DATA fields.

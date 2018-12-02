@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This controller is used by store and wareHouse admins to add categories.
+ */
 public class AddCategoryMenuViewController {
     private String current_instance;
 
@@ -60,6 +63,9 @@ public class AddCategoryMenuViewController {
 
     }
 
+    /**
+     * the next category in a new window.
+     */
     @FXML public void open_next_cat(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCategoryMenuView.fxml"));
@@ -81,6 +87,9 @@ public class AddCategoryMenuViewController {
         }
     }
 
+    /**
+     * this method sets the categories.
+     */
     @FXML public void set_category(){
 
         System.out.println("The value of current Instance.");

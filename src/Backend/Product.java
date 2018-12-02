@@ -2,8 +2,16 @@ package Backend;
 
 import java.io.Serializable;
 
+/**
+ * The objects of this class are the products that the user wants to buy.
+ */
 public class Product implements Serializable, Comparable<Product> {
 
+    /**
+     * Overriding the compareto method to compare products based on name. (case sensitive)
+     * @param o
+     * @return
+     */
     @Override
     public int compareTo(Product o) {
         return this.name.compareTo(o.name);
@@ -57,6 +65,10 @@ public class Product implements Serializable, Comparable<Product> {
         this.path = path;
     }
 
+    /**
+     * constructor for product.
+     * @param name
+     */
     public Product(String name){
         this.name = name;
         units = 0;

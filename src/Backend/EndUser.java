@@ -2,8 +2,14 @@ package Backend;
 
 import java.util.ArrayList;
 
+/**
+ * end user is the customer that is going to buy the products.<br> This software is built to cater to the needs of the end user.
+ */
 public class EndUser extends User {
 
+    /**
+     * Balance of the end user.
+     */
     private double budget;
     private Cart cart;
 

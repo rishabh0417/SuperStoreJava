@@ -2,6 +2,9 @@ package Backend;
 
 import java.util.List;
 
+/**
+ * WareHouse admin has warehouses under it.
+ */
 public class WarehouseAdmin extends User {
 
     private List<Warehouse> list_of_warehouses;
@@ -9,6 +12,11 @@ public class WarehouseAdmin extends User {
     private Message messageReceived;
     private Warehouse warehouse;
 
+    /**
+     * constructor
+     * @param a
+     * @param b
+     */
     public WarehouseAdmin(String a, String b){
         super(a, b);
         messageReceivedFlag = false;
@@ -56,6 +64,10 @@ public class WarehouseAdmin extends User {
 
     public String getUsername(){ return username; }
 
+    /**
+     * sets user name for the wareHouse admin.
+     * @param s
+     */
     public void setUsername(String s){ this.username = s; }
 
     public String getPassword(){ return password; }
@@ -65,6 +77,10 @@ public class WarehouseAdmin extends User {
         return super.toString();
     }
 
+    /**
+     * sets passwords for the wareHouse admin.
+     * @param s
+     */
     public void setPassword(String s){ this.password = s; }
 
 }

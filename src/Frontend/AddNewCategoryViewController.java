@@ -11,7 +11,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
+/**
+ * Used for adding new category view.
+ */
 public class AddNewCategoryViewController {
 
     @FXML private Button add_cat;

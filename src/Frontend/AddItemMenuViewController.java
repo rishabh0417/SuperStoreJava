@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Used by warehouse and store admin to add items in the database.
+ */
 public class AddItemMenuViewController {
 
     private String current_instance;
@@ -53,7 +56,10 @@ public class AddItemMenuViewController {
 
     }
 
-//    called upon adding the product
+
+    /**
+     * Called upon adding the product
+     */
     @FXML public void open_prod(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AddItemMenuView.fxml"));
@@ -76,7 +82,9 @@ public class AddItemMenuViewController {
     }
 
 
-//    opens up the page to add products
+    /**
+     * Opens up the page to add products
+     */
     @FXML public void add_prod(){
         System.out.println("The value of current Instance.");
         System.out.println(current_instance+">"+DATA.curr_prodcut.getName());

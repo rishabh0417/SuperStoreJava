@@ -7,6 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+/**
+ * Used by end user
+ */
 public class Controller2 {
 
     @FXML
@@ -23,6 +26,9 @@ public class Controller2 {
         userName.setText(LoginViewController.name);
     }
 
+    /**
+     * opens end user cart
+     */
     @FXML
     private void openCart(){
         try {
@@ -36,6 +42,9 @@ public class Controller2 {
         }
     }
 
+    /**
+     * used to add money
+     */
     @FXML
     private void addMoney(){
         try {
@@ -49,6 +58,9 @@ public class Controller2 {
         }
     }
 
+    /**
+     * used to browse the store
+     */
     @FXML
     private void storeBrowse(){
         try {
@@ -62,6 +74,9 @@ public class Controller2 {
         }
     }
 
+    /**
+     * Used to search products.
+     */
     @FXML
     private void itemSearch(){
         try {

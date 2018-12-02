@@ -3,10 +3,17 @@ package Backend;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * Representation of the whole directory structure. This class contains list of all categories and their products.<br>
+ * Contains all methods to insert and delete.
+ */
 public class Database implements Serializable {
 
     private HashMap<String, Category> categories;
     private List<Product> list_of_product_names;
+    /**
+     * Sorted set used so that insertion and deletion is fast.
+     */
     private SortedSet<Product> sorted_list_of_product_names;
     String path;
 
@@ -18,12 +25,23 @@ public class Database implements Serializable {
         this.categories = categories;
     }
 
+    /**
+     * constructor for the class
+     */
     public Database(){
         categories = new HashMap<>();
         list_of_product_names = new LinkedList<>();
         sorted_list_of_product_names = new TreeSet<>();
     }
 
+    /**
+     *
+     * Insert method is used to insert category or product.
+     *
+     * @param subCategory
+     * @param p
+     * @throws ProductExistsException
+     */
     public void insert(String subCategory, Product p) throws ProductExistsException{
 
         Category c = null;
@@ -66,6 +84,13 @@ public class Database implements Serializable {
 
     }
 
+    /**
+     *
+     * delete method is used to delete any category or product with the given path.
+     *
+     * @param path
+     * @throws ProductNotExistsException
+     */
     public void delete(String path) throws ProductNotExistsException{
         String[] dat = path.split(">");
         Category c = null;
@@ -95,6 +120,14 @@ public class Database implements Serializable {
         }else throw new ProductNotExistsException("no such path exists.");
     }
 
+    /**
+     *
+     * search is used to search for a product or a subcategory.
+     *
+     * @param product_name
+     * @return
+     * @throws ProductNotExistsException
+     */
     public List<Product> search(String product_name) throws ProductNotExistsException{
 
         List<Product> lst = new LinkedList<>();
@@ -110,7 +143,14 @@ public class Database implements Serializable {
     }
 
 
-
+    /**
+     * sale is used to sell a product with the given quantity and end user balance
+     * @param product
+     * @param qty
+     * @param balance
+     * @return
+     * @throws SaleNotPossibleException
+     */
     public int sale(Product product, int qty, int balance) throws SaleNotPossibleException{
         if (product.getUnits() < qty){
             if (product.getCost()*qty > balance) throw new SaleNotPossibleException("Sale not possible due to limited products");

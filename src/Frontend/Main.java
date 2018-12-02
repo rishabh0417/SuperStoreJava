@@ -13,10 +13,19 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
+
+/**
+ * The first screen in the application.
+ */
 public class Main extends Application {
 
     public static Stage MainStage;
 
+    /**
+     * Overriding the start function so as to catch the exceptions that arrise during the execution.
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
 

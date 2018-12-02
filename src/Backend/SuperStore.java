@@ -4,15 +4,33 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SuperStore implements Serializable{
 
+/**
+ * The main class that contains the list of the all the components of the projects, so, that the project can be serialised.
+ */
+public class SuperStore implements Serializable{
+    /**
+     * list of store admins.
+     */
     private List<StoreAdmin> list_of_store_admins;
+    /**
+     * List of warehouse admins
+     */
     private List<WarehouseAdmin> list_of_warehouse_admins;
+    /**
+     * List of warehouses.
+     */
     private List<Warehouse> list_of_warehouse;
+    /**
+     * list of stores.
+     */
     private List<Store> list_of_store;
 
     Database main_database;
 
+    /**
+     * constructor
+     */
     public SuperStore(){
         main_database = new Database();
         list_of_store_admins = new LinkedList<>();

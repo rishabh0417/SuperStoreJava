@@ -2,6 +2,9 @@ package Backend;
 
 import java.util.Date;
 
+/**
+ * Class used for sending messages.
+ */
 public class Record {
 
     private Product item;

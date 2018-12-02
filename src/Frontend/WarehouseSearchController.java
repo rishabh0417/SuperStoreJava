@@ -14,6 +14,9 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Used to search for products and categories in the wareHose under the admin.
+ */
 public class WarehouseSearchController {
 
 
@@ -58,6 +61,9 @@ public class WarehouseSearchController {
         });
     }
 
+    /**
+     * Used when the admin wants to sort the search results.
+     */
     @FXML public void sorter(){
         if (check_sort.isSelected()) observer = FXCollections.observableList(sorted_productList);
         else observer = FXCollections.observableList(productList);

@@ -12,6 +12,9 @@ import javafx.scene.paint.Color;
 
 import java.io.IOException;
 
+/**
+ * superUserController is the main controller for the superUser window.
+ */
 public class superUserController {
 
     @FXML private TextField id_of_newUser;
@@ -64,6 +67,9 @@ public class superUserController {
     }
 
 
+    /**
+     * Used to create new warehouse and store admins.
+     */
     @FXML
     public void create_new_user(){
 
@@ -161,6 +167,9 @@ public class superUserController {
         }
     }
 
+    /**
+     * Used to link stores to warehouses.
+     */
     @FXML
     public void link_warehouse_store(){
 
@@ -187,6 +196,9 @@ public class superUserController {
 
     }
 
+    /**
+     * Used to delete the wareHouse and Store admins.
+     */
     @FXML
     public void delete_user(){
 

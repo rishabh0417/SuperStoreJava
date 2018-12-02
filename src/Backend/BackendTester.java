@@ -2,6 +2,9 @@ package Backend;
 
 import java.io.*;
 
+/**
+ * Customised for testing the operations of the application in the backend only.
+ */
 public class BackendTester {
 
     public static void main(String[] args) {
@@ -139,6 +142,12 @@ public class BackendTester {
 
     }
 
+    /**
+     * testing serialisation
+     * @param sa
+     * @param file
+     * @throws IOException
+     */
     public static void Serialize(SuperStore sa, String file) throws IOException {
         ObjectOutputStream oStream = null;
 
@@ -151,6 +160,13 @@ public class BackendTester {
         }
     }
 
+    /**
+     * testing deserialisation
+     * @param file
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static SuperStore Deserialize(String file) throws IOException, ClassNotFoundException {
         ObjectInputStream inputStream = null;
         SuperStore sa;
