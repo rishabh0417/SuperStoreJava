@@ -6,23 +6,25 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane fx:controller="Frontend.UpdatePopupController" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Update Product" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Update Product" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.UpdatePopupController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="462.0">
          <children>
-            <Button layoutX="120.0" layoutY="238.0" mnemonicParsing="false" text="Update" />
+            <Button layoutX="120.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#update_product" text="Update" />
             <Label layoutX="68.0" layoutY="39.0" text="Item name" />
             <Label layoutX="68.0" layoutY="96.0" prefHeight="17.0" prefWidth="64.0" text="Item cost" />
             <Label layoutX="68.0" layoutY="152.0" text="quantity" />
-            <TextField layoutX="68.0" layoutY="56.0" />
-            <TextField layoutX="68.0" layoutY="113.0" />
-            <TextField layoutX="68.0" layoutY="169.0" />
-            <TextField layoutX="318.0" layoutY="56.0" />
-            <TextField layoutX="318.0" layoutY="113.0" />
-            <TextField layoutX="318.0" layoutY="173.0" />
+            <TextField fx:id="update_name" layoutX="68.0" layoutY="56.0" />
+            <TextField fx:id="update_cost" layoutX="68.0" layoutY="113.0" />
+            <TextField fx:id="update_quantity" layoutX="68.0" layoutY="169.0" />
+            <TextField fx:id="update_D" layoutX="318.0" layoutY="56.0" />
+            <TextField fx:id="update_H" layoutX="318.0" layoutY="113.0" />
+            <TextField fx:id="update_K" layoutX="318.0" layoutY="173.0" />
             <Label layoutX="318.0" layoutY="39.0" text="Fixed Cost per quater - D" />
             <Label layoutX="318.0" layoutY="96.0" text="Carrying Cost per unit quater - H" />
             <Label layoutX="318.0" layoutY="152.0" text="Demand of items in units per quater - K" />
+            <TextField fx:id="update_description" layoutX="318.0" layoutY="238.0" prefHeight="86.0" prefWidth="149.0" />
+            <Label layoutX="318.0" layoutY="214.0" text="Description" />
          </children></AnchorPane>
   </content>
 </TitledPane>

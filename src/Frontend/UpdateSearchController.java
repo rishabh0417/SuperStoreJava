@@ -7,10 +7,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.*;
 
 
@@ -23,6 +27,8 @@ public class UpdateSearchController {
     List<Product> sorted_productList;
 
     ObservableList<Product> observer;
+
+    Product selected_product;
 
     @FXML public void initialize(){
 
@@ -47,7 +53,7 @@ public class UpdateSearchController {
         list_updation.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Product>() {
             @Override
             public void changed(ObservableValue observable, Product oldValue, Product newValue) {
-
+                selected_product = newValue;
             }
         });
     }
@@ -60,6 +66,17 @@ public class UpdateSearchController {
     }
 
     @FXML public void next_clicked(){
+        DATA.curr_prodcut = selected_product;
+
+        Stage stage = new Stage();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("Update pop up.fxml")), 600, 500));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setTitle("Edit");
+        stage.show();
+
 
     }
 

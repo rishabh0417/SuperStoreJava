@@ -69,5 +69,5 @@ public class warehouseAdminController {
         stage.show();
     }
 
-
+//TODO: category renaming time taking therefore will implement if time allows.
 }
