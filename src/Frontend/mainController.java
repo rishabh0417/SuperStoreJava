@@ -1,5 +1,6 @@
 package Frontend;
 
+import Backend.Cart;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -43,6 +44,7 @@ public class mainController {
     @FXML
     public void endUser_clicked(){
         try {
+            DATA.current_cart = new Cart();
             DATA.isEndUser = true;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EndUserView.fxml"));
             Parent root = loader.load();
