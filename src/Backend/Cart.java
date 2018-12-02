@@ -10,6 +10,7 @@ import java.util.HashMap;
 public class Cart implements Serializable {
 
 
+
     public Cart(){
         list_of_items = new HashMap<>();
     }
@@ -18,7 +19,7 @@ public class Cart implements Serializable {
 
      @summary String is the name of the product and the Integer is the quantity
      */
-    private HashMap<String, Integer> list_of_items;
+    private HashMap<Product, Integer> list_of_items;
 
 
 
@@ -26,7 +27,7 @@ public class Cart implements Serializable {
      * getter
      * @return list_of_items
      */
-    public HashMap<String, Integer> getList_of_items() {
+    public HashMap<Product, Integer> getList_of_items() {
         return list_of_items;
     }
 }
