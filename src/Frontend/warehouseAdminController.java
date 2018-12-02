@@ -3,6 +3,7 @@ package Frontend;
 import Backend.WarehouseAdmin;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,12 +22,13 @@ public class warehouseAdminController {
 
     @FXML private RadioButton radio_product_add;
     @FXML private RadioButton radio_category_add;
-    @FXML private RadioButton radio_update_product;
-    @FXML private RadioButton radio_update_Category;
+    @FXML private RadioButton radio_delete_product;
+    @FXML private RadioButton radio_delete_Category;
 
     WarehouseAdmin wa;
 
     @FXML private TextField update_name;
+    @FXML private TextField del_text;
 
     @FXML public void initialize(){
         warehouse_welcome.setText("Hi, " + DATA.cur_warehouseAdmin.getUsername());
@@ -67,6 +69,45 @@ public class warehouseAdminController {
         }
 
         stage.show();
+    }
+
+    @FXML public void del_search(){
+
+        DATA.string2 = del_text.getText();
+
+        if (radio_delete_Category.isSelected()){
+            del_text.setDisable(true);
+
+            DATA.currentCategory = DATA.cur_warehouseAdmin.getWarehouse().warehouse_inventory.getCategories().get("root");
+            DATA.currentCategoryString = "root";
+            DATA.path = DATA.currentCategoryString;
+
+
+            try {
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("delete pop up.fxml"));
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root, 650, 500));
+                stage.setTitle("Delete...");
+                stage.show();
+            } catch (IOException e){
+                System.out.println(e.getCause());
+            }
+
+
+        } else if (radio_delete_product.isSelected()){
+            del_text.setDisable(false);
+            Stage stage = new Stage();
+            stage.setTitle("Search Results");
+            try {
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("DeleteSearch.fxml")), 700, 500));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            stage.show();
+        }
     }
 
 //TODO: category renaming time taking therefore will implement if time allows.
