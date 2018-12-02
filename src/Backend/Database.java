@@ -100,7 +100,7 @@ public class Database implements Serializable {
         List<Product> lst = new LinkedList<>();
         boolean flag = false;
         for (Product p : list_of_product_names){
-            if (product_name.equalsIgnoreCase(p.getName())){
+            if (p.getName().contains(product_name)){
                 flag = true;
                 lst.add(p);
             }
