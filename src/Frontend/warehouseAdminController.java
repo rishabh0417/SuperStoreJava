@@ -53,13 +53,23 @@ public class warehouseAdminController {
         if (wa.getWarehouse()!= null){
             if (radio_product_add.isSelected()){
                 try {
-                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("AddGUI.fxml")), 600, 500));
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("AddGUI.fxml")), 600, 500);
+//                    stage.setTitle("warehouse");
+                    stage.setScene(scene);
+                    stage.show();
+//                    Main.MainStage.setScene());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             } else if (radio_category_add.isSelected()){
                 try {
-                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("AddNewCategoryView.fxml")), 600, 500));
+
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("AddNewCategoryView.fxml")), 600, 500);
+//                    stage.setTitle("warehouse");
+                    stage.setScene(scene);
+                    stage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -151,5 +161,4 @@ public class warehouseAdminController {
         }
     }
 
-//TODO: category renaming time taking therefore will implement if time allows.
 }

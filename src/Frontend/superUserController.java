@@ -72,7 +72,11 @@ public class superUserController {
             DATA.create_new_user_selection = 1;
 
             try {
-                Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("SuperUserSetLoginView.fxml"))));
+
+                Stage stage = new Stage();
+                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("SuperUserSetLoginView.fxml")));
+                stage.setScene(scene);
+                stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -81,7 +85,11 @@ public class superUserController {
             DATA.create_new_user_selection = 2;
 
             try {
-                Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("SuperUserSetLoginView.fxml"))));
+
+                Stage stage = new Stage();
+                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("SuperUserSetLoginView.fxml")));
+                stage.setScene(scene);
+                stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,8 +25,10 @@ public class mainController {
     public void super_user_clicked(){
         DATA.isSuperUser = true;
         try {
-            Scene s1 = new Scene(FXMLLoader.load(getClass().getResource("LoginView.fxml")), 600, 500);
-            Main.MainStage.setScene(s1);
+            Stage stage = new Stage();
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("LoginView.fxml")), 600, 500);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,8 +51,14 @@ public class mainController {
             DATA.isEndUser = true;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EndUserView.fxml"));
             Parent root = loader.load();
-            Main.MainStage.setTitle("Guest");
-            Main.MainStage.setScene(new Scene(root, 600, 500));
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 600, 500);
+            stage.setTitle("Guest");
+            stage.setScene(scene);
+            stage.show();
+//            Main.MainStage.setTitle("Guest");
+//            Main.MainStage.setScene(new Scene(root, 600, 500));
 
         } catch (IOException e){
             System.err.println(e);
@@ -61,8 +70,15 @@ public class mainController {
             DATA.isWarehouseAdmin = true;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginView.fxml"));
             Parent root = loader.load();
-            Main.MainStage.setTitle("Warehouse");
-            Main.MainStage.setScene(new Scene(root, 500, 500));
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 600, 500);
+            stage.setTitle("warehouse");
+            stage.setScene(scene);
+            stage.show();
+
+//            Main.MainStage.setTitle("Warehouse");
+//            Main.MainStage.setScene(new Scene(root, 500, 500));
         } catch (IOException e){
             System.err.println(e);
         }
@@ -73,8 +89,15 @@ public class mainController {
             DATA.isStoreAdmin = true;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginView.fxml"));
             Parent root = loader.load();
-            Main.MainStage.setTitle("Store");
-            Main.MainStage.setScene(new Scene(root, 500, 500));
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 600, 500);
+            stage.setTitle("Store");
+            stage.setScene(scene);
+            stage.show();
+
+//            Main.MainStage.setTitle("Store");
+//            Main.MainStage.setScene(new Scene(root, 500, 500));
 
         } catch (IOException e){
             System.err.println(e);
