@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
@@ -23,6 +24,7 @@ public class StoreUpdateSearchController {
     @FXML
     private ListView list_updation;
     @FXML private CheckBox check_sort;
+    @FXML private Button next_button;
 
     List<Product> productList;
     List<Product> sorted_productList;
@@ -32,6 +34,10 @@ public class StoreUpdateSearchController {
     Product selected_product;
 
     @FXML public void initialize(){
+        if (DATA.flag1 == 1){
+            next_button.setText("");
+            next_button.setDisable(true);
+        }
 
         try {
             productList = DATA.cur_storeAdmin.getStore().store_inventory.search(DATA.string2);

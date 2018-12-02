@@ -63,9 +63,9 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextField layoutX="51.0" layoutY="86.0" />
+                  <TextField fx:id="other_search_text" layoutX="51.0" layoutY="86.0" />
                   <Label layoutX="51.0" layoutY="57.0" text="Enter Name :" />
-                  <Button layoutX="51.0" layoutY="122.0" mnemonicParsing="false" text="Search" />
+                  <Button layoutX="51.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#searcher" text="Search" />
                </children>
             </AnchorPane>
         </content>

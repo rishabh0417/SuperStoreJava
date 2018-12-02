@@ -32,6 +32,7 @@ public class DATA {
 //    data variables.
     public static String string1;
     public static String string2;
+    public static int flag1;
 
     public DATA(){
         list_of_warehouseAdmins = new LinkedList<>();

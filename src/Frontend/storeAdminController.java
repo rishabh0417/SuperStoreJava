@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -21,6 +22,34 @@ public class storeAdminController {
 
 
     @FXML private TextField update_text;
+    @FXML private TextField other_search_text;
+
+    @FXML public void searcher(){
+        String s = other_search_text.getText();
+
+        if (s.equals("")){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Empty values not permitted");
+            alert.showAndWait();
+        } else {
+
+            DATA.flag1 = 1;
+            DATA.string2 = s;
+
+            Stage stage = new Stage();
+            stage.setTitle("Search Results");
+            try {
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("StoreUpdateSearch.fxml")), 700, 500));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            stage.show();
+
+        }
+    }
 
     @FXML public void store_del_items(){
         DATA.string2 = del_text.getText();
