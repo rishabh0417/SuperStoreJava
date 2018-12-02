@@ -1,5 +1,6 @@
 package Frontend;
 
+import Backend.StoreAdmin;
 import Backend.WarehouseAdmin;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -83,6 +84,28 @@ public class LoginViewController {
                 failStatus.setText("");
                 try {
                     Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("warehouseAdmin.fxml")), 600, 500));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else if (DATA.isStoreAdmin){
+
+            boolean flag = false;
+
+            for (StoreAdmin a : DATA.list_of_storeAdmins){
+                if (usr.getText().equalsIgnoreCase(a.username) && pswd.getText().equalsIgnoreCase(a.password)){
+                    DATA.cur_storeAdmin = a;
+                    flag = true;
+                    break;
+                }
+            }
+
+            if (!flag){
+                failStatus.setText("The Username or Password you \n entered is incorrect!");
+            }else{
+                failStatus.setText("");
+                try {
+                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("storeAdmin.fxml")), 600, 500));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

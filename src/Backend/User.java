@@ -8,8 +8,8 @@ public class User implements Serializable {
         return username;
     }
 
-    String username;
-    String password;
+    public String username;
+    public String password;
 
     public User(String usr, String pas){
         username = usr;

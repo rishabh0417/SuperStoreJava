@@ -12,7 +12,7 @@ public class DATA {
     public static boolean isEndUser;
 
     public static WarehouseAdmin cur_warehouseAdmin;
-
+    public static StoreAdmin cur_storeAdmin;
 
     public static SuperStore superStore;
     public static SuperUser current_super_user;
