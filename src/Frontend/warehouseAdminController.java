@@ -135,7 +135,7 @@ public class warehouseAdminController {
             alert.showAndWait();
         } else {
 
-            DATA.string2 = del_text.getText();
+            DATA.string2 = s;
             DATA.warehouse = cur_warehouse_for_search;
 
             Stage stage = new Stage();

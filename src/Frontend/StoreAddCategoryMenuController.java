@@ -14,26 +14,25 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddCategoryMenuViewController {
+public class StoreAddCategoryMenuController {
+
     private String current_instance;
 
     Stage stage;
 
-    @FXML private Button open_up_rec;
+    @FXML
+    private Button open_up_rec;
     @FXML private Button add_cat_rec;
 
     Category curr;
 
     @FXML
     private ListView list_categories;
-
-    public AddCategoryMenuViewController(){
-
-    }
 
     @FXML public void initialize(){
         stage = new Stage();
@@ -62,7 +61,7 @@ public class AddCategoryMenuViewController {
 
     @FXML public void open_next_cat(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCategoryMenuView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreAddCategoryMenu.fxml"));
             Parent root = loader.load();
             stage = new Stage();
             stage.setScene(new Scene(root, 650, 500));
@@ -87,8 +86,9 @@ public class AddCategoryMenuViewController {
         System.out.println(current_instance+">"+DATA.string1);
 
         try {
-            DATA.cur_warehouseAdmin.getWarehouse().warehouse_inventory.insert(current_instance+">"+DATA.string1, null);
-            DATA.cur_warehouseAdmin.getWarehouse().warehouse_inventory.insert(current_instance+">"+DATA.string1, new Product("default"));
+            DATA.cur_storeAdmin.getStore().store_inventory.insert(current_instance+">"+DATA.string1, null);
+            DATA.cur_storeAdmin.getStore().store_inventory.insert(current_instance+">"+DATA.string1, new Product("default"));
+
             FileWriter.Serialize(DATA.superStore);
         } catch (ProductExistsException e) {
             e.printStackTrace();

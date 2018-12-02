@@ -42,7 +42,7 @@
                <children>
                   <TextField fx:id="update_name" layoutX="75.0" layoutY="102.0" />
                   <Label layoutX="75.0" layoutY="58.0" text="Enter  name" />
-                  <Button layoutX="129.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#updateBtn" text="Search" />
+                  <Button layoutX="75.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#updateBtn" text="Search" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -69,9 +69,9 @@
                <children>
                   <ComboBox fx:id="dropdown_warehouse" layoutX="67.0" layoutY="91.0" prefWidth="150.0" />
                   <Label layoutX="67.0" layoutY="67.0" text="Select Warehouse :" />
-                  <TextField fx:id="other_search_text" layoutX="186.0" layoutY="218.0" />
-                  <Button layoutX="239.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#other_searcher" text="Search" />
-                  <Label layoutX="186.0" layoutY="190.0" text="Enter Name :" />
+                  <TextField fx:id="other_search_text" layoutX="336.0" layoutY="91.0" />
+                  <Button layoutX="264.0" layoutY="142.0" mnemonicParsing="false" onMouseClicked="#other_searcher" text="Search" />
+                  <Label layoutX="336.0" layoutY="67.0" text="Enter Name :" />
                </children>
             </AnchorPane>
         </content>
