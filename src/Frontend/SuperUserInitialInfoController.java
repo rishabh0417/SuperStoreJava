@@ -25,6 +25,9 @@ public class SuperUserInitialInfoController {
     @FXML
     public ListView<Warehouse> ListOfWarehouses;
 
+    int x = 0;
+    Warehouse wa;
+    Store sa;
 
     @FXML
     private void initialize(){
@@ -35,6 +38,8 @@ public class SuperUserInitialInfoController {
         ListOfStores.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Store>() {
             @Override
             public void changed(ObservableValue<? extends Store> observable, Store oldValue, Store newValue) {
+                sa = newValue;
+                x = 1;
                 DATA.store = newValue;
             }
         });
@@ -42,6 +47,8 @@ public class SuperUserInitialInfoController {
         ListOfWarehouses.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Warehouse>() {
             @Override
             public void changed(ObservableValue<? extends Warehouse> observable, Warehouse oldValue, Warehouse newValue) {
+                wa = newValue;
+                x = 2;
                 DATA.warehouse = newValue;
             }
         });
@@ -62,16 +69,30 @@ public class SuperUserInitialInfoController {
     @FXML
     public void openFromSU(){
 
-        DATA.currentCategory = DATA.warehouse.warehouse_inventory.getCategories().get("root") ;
-        Parent root = null;
-        try {
-            Stage stage = new Stage();
-            root = FXMLLoader.load(getClass().getResource("SuperUserBrowserView.fxml"));
-            stage.setTitle("WareHouse value : ");
-            stage.setScene(new Scene(root, 600, 500));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (x == 2) {
+            DATA.currentCategory = DATA.warehouse.warehouse_inventory.getCategories().get("root");
+            Parent root = null;
+            try {
+                Stage stage = new Stage();
+                root = FXMLLoader.load(getClass().getResource("SuperUserBrowserView.fxml"));
+                stage.setTitle("WareHouse value : ");
+                stage.setScene(new Scene(root, 600, 500));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (x == 1){
+            DATA.currentCategory = DATA.store.store_inventory.getCategories().get("root");
+            Parent root = null;
+            try {
+                Stage stage = new Stage();
+                root = FXMLLoader.load(getClass().getResource("SuperUserBrowserView.fxml"));
+                stage.setTitle("Store value : ");
+                stage.setScene(new Scene(root, 600, 500));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }

@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -183,8 +184,15 @@ public class superUserController {
     }
 
     @FXML
-    public void search_storeWarehouse(){
-
+    public void explore(){
+        try {
+            Stage stage = new Stage();
+            stage.setTitle("Explore");
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("SuperUserInitialInfo.fxml"))));
+            stage.show();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML

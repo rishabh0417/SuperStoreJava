@@ -78,7 +78,6 @@ public class EndUserCartViewController {
                 DATA.current_cart.getList_of_items().remove(p);
             }
         }
-
     }
 
 }
