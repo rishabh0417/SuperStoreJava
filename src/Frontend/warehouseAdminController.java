@@ -1,14 +1,15 @@
 package Frontend;
 
+import Backend.Warehouse;
 import Backend.WarehouseAdmin;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -30,9 +31,22 @@ public class warehouseAdminController {
     @FXML private TextField update_name;
     @FXML private TextField del_text;
 
+    @FXML private ComboBox dropdown_warehouse;
+    @FXML Warehouse cur_warehouse_for_search;
+    @FXML private TextField other_search_text;
+
     @FXML public void initialize(){
         warehouse_welcome.setText("Hi, " + DATA.cur_warehouseAdmin.getUsername());
         wa = DATA.cur_warehouseAdmin;
+
+        dropdown_warehouse.setItems(FXCollections.observableList(DATA.list_of_warehouses));
+
+        dropdown_warehouse.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Warehouse>() {
+            @Override
+            public void changed(ObservableValue observable, Warehouse oldValue, Warehouse newValue) {
+                cur_warehouse_for_search = newValue;
+            }
+        });
     }
 
     @FXML public void add_objects(){
@@ -107,6 +121,33 @@ public class warehouseAdminController {
             }
 
             stage.show();
+        }
+    }
+
+    @FXML public void other_searcher(){
+        String s = other_search_text.getText();
+
+        if (s.equals("")){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Empty values not permitted");
+            alert.showAndWait();
+        } else {
+
+            DATA.string2 = del_text.getText();
+            DATA.warehouse = cur_warehouse_for_search;
+
+            Stage stage = new Stage();
+            stage.setTitle("Search Results");
+            try {
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("WarehouseSearch.fxml")), 700, 500));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            stage.show();
+
         }
     }
 
