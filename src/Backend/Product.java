@@ -15,6 +15,11 @@ public class Product implements Serializable, Comparable<Product> {
     private String path;
     private String description;
 
+    public int calcEOQ(){
+        if (H == 0) return 0;
+        else return (int) Math.sqrt(2*D*K/H);
+    }
+
     public String getDescription() {
         return description;
     }

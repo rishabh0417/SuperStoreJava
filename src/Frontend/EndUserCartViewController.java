@@ -1,6 +1,8 @@
 package Frontend;
 
+import Backend.Message;
 import Backend.Product;
+import Backend.Store;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -78,6 +80,24 @@ public class EndUserCartViewController {
                 DATA.current_cart.getList_of_items().remove(p);
             }
         }
+
+//        generating orders for the store.
+
+        HashMap<Product, Integer> builder = new HashMap<>();
+        Store store = DATA.store;
+
+            for (Product p : DATA.store.store_inventory.getSorted_list_of_product_names()) {
+                int abc = p.getUnits();
+                if (abc == 0) {
+                    builder.put(p, p.calcEOQ());
+            }
+        }
+
+        Message msg = new Message(builder, store);
+            DATA.store.linked_warehouse.myAdmin.setMessageReceived(msg);
+        DATA.store.linked_warehouse.myAdmin.setMessageReceivedFlag(true);
+
+
     }
 
 }

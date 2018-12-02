@@ -9,6 +9,7 @@ public class Warehouse implements Serializable {
     public String id;
     public Database warehouse_inventory;
     public List<Store> store_list;
+    public WarehouseAdmin myAdmin;
 
     public Warehouse(){
         warehouse_inventory = new Database();

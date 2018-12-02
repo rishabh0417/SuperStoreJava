@@ -63,6 +63,7 @@ public class SuperUserSetLoginViewController {
                     if (DATA.create_new_user_selection == 1){
                         WarehouseAdmin w = new WarehouseAdmin(username_createUser.getText(), password_createUser.getText());
                         w.setWarehouse(wa);
+                        wa.myAdmin = w;
                         DATA.list_of_warehouseAdmins.add(w);
                     }else{
                         StoreAdmin w1 = new StoreAdmin(username_createUser.getText(), password_createUser.getText());

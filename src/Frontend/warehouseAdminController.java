@@ -1,7 +1,6 @@
 package Frontend;
 
-import Backend.Warehouse;
-import Backend.WarehouseAdmin;
+import Backend.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -14,6 +13,9 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 public class warehouseAdminController {
 
@@ -35,6 +37,8 @@ public class warehouseAdminController {
     @FXML Warehouse cur_warehouse_for_search;
     @FXML private TextField other_search_text;
 
+    @FXML private ListView List_messages;
+
     @FXML public void initialize(){
         warehouse_welcome.setText("Hi, " + DATA.cur_warehouseAdmin.getUsername());
         wa = DATA.cur_warehouseAdmin;
@@ -47,6 +51,35 @@ public class warehouseAdminController {
                 cur_warehouse_for_search = newValue;
             }
         });
+
+        List<String> toBeDisplayed = new LinkedList<>();
+
+
+        DATA.cur_warehouseAdmin.setMessageReceivedFlag(true);
+        if (DATA.cur_warehouseAdmin.getMessageReceivedFlag()){
+            Message msg = DATA.cur_warehouseAdmin.getMessageReceived();
+
+            List<Product> lst = new LinkedList<>();
+//            msg.getRecordList().keySet().addAll(lst);
+
+            Store s = DATA.cur_warehouseAdmin.getWarehouse().store_list.get(0);
+
+
+
+//            for (Product p : lst){
+//                toBeDisplayed.add("Product : " + p.getName() + "Quantity required : " + msg.getRecordList().get(p) + "from store : " + msg.getSender().getId());
+//            }
+
+            for (Product p : s.store_inventory.getList_of_product_names()){
+                if (p.getUnits() == 0) toBeDisplayed.add("Product : " + p.getName() + "Quantity required : " + p.calcEOQ() + "from store : " + "#1");
+            }
+
+            List_messages.setItems(FXCollections.observableList(toBeDisplayed));
+        }else{
+            toBeDisplayed.add("Product : " + "samsung" + "Quantity required : " + "0.0" + "from store : " + "#1");
+            List_messages.setItems(FXCollections.observableList(toBeDisplayed));
+        }
+
     }
 
     @FXML public void add_objects(){
@@ -160,5 +193,4 @@ public class warehouseAdminController {
 
         }
     }
-
 }
