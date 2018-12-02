@@ -12,6 +12,7 @@ public class Warehouse implements Serializable {
     public String id;
     public Database warehouse_inventory;
     public List<Store> store_list;
+    public WarehouseAdmin myAdmin;
 
     /**
      * constructor for warehouse

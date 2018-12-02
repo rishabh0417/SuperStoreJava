@@ -9,6 +9,18 @@ public class WarehouseAdmin extends User {
 
     private List<Warehouse> list_of_warehouses;
     private Boolean messageReceivedFlag;
+
+    public Message getMessageReceived() {
+        if (messageReceivedFlag)
+        return messageReceived;
+        else return null;
+    }
+
+    public void setMessageReceived(Message messageReceived) {
+        this.messageReceived = messageReceived;
+        messageReceivedFlag = true;
+    }
+
     private Message messageReceived;
     private Warehouse warehouse;
 
@@ -23,7 +35,17 @@ public class WarehouseAdmin extends User {
     }
 
     public void forwardMessage(){
-
+        Message msg = messageReceived;
+        for (Warehouse w : list_of_warehouses){
+            List<Product> l = w.warehouse_inventory.getList_of_product_names();
+            for (Product p : l){
+                for (Product p2 : msg.getRecordList().keySet()){
+                    if (msg.getRecordList().get(p2) > p.getUnits()){
+                        p.setUnits(p.getUnits() - p2.getUnits());
+                    }
+                }
+            }
+        }
     }
 
     public void checkEmptyStatus(){

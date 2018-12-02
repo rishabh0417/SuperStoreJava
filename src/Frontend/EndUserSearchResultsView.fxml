@@ -8,23 +8,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="Frontend.EndUserSearchResultsViewController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="28.0" layoutY="21.0" text="Search Results">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <ListView layoutX="28.0" layoutY="72.0" prefHeight="300.0" prefWidth="376.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
-      <CheckBox layoutX="421.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Sort (A-Z)">
+      <ListView fx:id="list_Products" layoutX="28.0" layoutY="72.0" prefHeight="300.0" prefWidth="376.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
+      <CheckBox fx:id="checkbox_sort" layoutX="421.0" layoutY="72.0" mnemonicParsing="false" onMouseClicked="#sorter" style="-fx-background-color: #ffffff;" text="Sort (A-Z)">
          <font>
             <Font size="16.0" />
          </font></CheckBox>
-      <Button layoutX="465.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-background-insets: 0 0 0 0;" text="Add to Cart">
+      <Button layoutX="465.0" layoutY="333.0" mnemonicParsing="false" onMouseClicked="#add_to_cart" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-background-insets: 0 0 0 0;" text="Add to Cart">
          <font>
             <Font size="16.0" />
          </font></Button>
-      <TextField layoutX="421.0" layoutY="277.0" prefHeight="39.0" prefWidth="151.0" promptText="Quantity to add..." style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <TextField fx:id="quant_text" layoutX="421.0" layoutY="277.0" prefHeight="39.0" prefWidth="151.0" promptText="Quantity to add..." style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <font>
             <Font size="16.0" />
          </font></TextField>

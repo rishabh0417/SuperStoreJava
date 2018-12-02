@@ -5,13 +5,15 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.Controller2">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.EndUserViewController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -24,7 +26,7 @@
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #ffffff; -fx-alignment: CENTER;" GridPane.rowIndex="1">
          <children>
-            <TextField prefHeight="39.0" prefWidth="268.0" promptText="Enter Product Name..." style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+            <TextField fx:id="input_product" prefHeight="39.0" prefWidth="268.0" promptText="Enter Product Name..." style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
                <font>
                   <Font size="16.0" />
                </font>
@@ -51,7 +53,7 @@
                   <Insets left="10.0" top="10.0" />
                </padding>
             </Label>
-            <Label fx:id="userName" text="Rishabh" textFill="WHITE">
+            <Label fx:id="userName" text="Guest" textFill="WHITE">
                <font>
                   <Font size="46.0" />
                </font>
@@ -69,7 +71,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Label>
-            <ChoiceBox prefHeight="37.0" prefWidth="275.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-insets: 0 0 0 0;" />
+            <ChoiceBox fx:id="choicebox_store" prefHeight="37.0" prefWidth="275.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-insets: 0 0 0 0;" />
          </children>
       </VBox>
       <VBox onMouseClicked="#storeBrowse" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #1e74ff; -fx-alignment: CENTER;" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -84,24 +86,13 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="budgetDisplayer" layoutX="310.0" layoutY="144.0" onMouseClicked="#addMoney" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #1e74ff;" GridPane.rowIndex="2">
+      <VBox fx:id="budgetDisplayer" layoutX="310.0" layoutY="144.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #1e74ff;" GridPane.rowIndex="2">
          <children>
-            <Label text="Budget" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <padding>
-                  <Insets left="10.0" top="10.0" />
-               </padding>
-            </Label>
-            <Label text="₹ 158.23" textFill="WHITE">
-               <font>
-                  <Font size="46.0" />
-               </font>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </Label>
+            <ImageView fitHeight="150.0" fitWidth="133.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../cart.png" />
+               </image>
+            </ImageView>
          </children>
       </VBox>
       <VBox fx:id="CartContainer" layoutX="10.0" layoutY="144.0" onMouseClicked="#openCart" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #ffffff; -fx-alignment: CENTER_RIGHT;" GridPane.columnIndex="1" GridPane.rowIndex="2">

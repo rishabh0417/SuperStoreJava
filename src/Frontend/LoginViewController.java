@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
@@ -59,7 +61,10 @@ public class LoginViewController {
         if (DATA.isSuperUser) {
             if (usr.getText().equalsIgnoreCase("admin") && pswd.getText().equalsIgnoreCase("super")){
                 try {
-                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("SuperUserInitialInfo.fxml")), 600, 500));
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("SuperUserInitialInfo.fxml")), 600, 500);
+                    stage.setScene(scene);
+                    stage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -83,7 +88,12 @@ public class LoginViewController {
             }else{
                 failStatus.setText("");
                 try {
-                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("warehouseAdmin.fxml")), 600, 500));
+
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("warehouseAdmin.fxml")), 600, 500);
+                    stage.setScene(scene);
+                    stage.show();
+//                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("warehouseAdmin.fxml")), 600, 500));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -105,7 +115,13 @@ public class LoginViewController {
             }else{
                 failStatus.setText("");
                 try {
-                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("storeAdmin.fxml")), 600, 500));
+
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("storeAdmin.fxml")), 600, 500);
+                    stage.setScene(scene);
+                    stage.show();
+
+//                    Main.MainStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("storeAdmin.fxml")), 600, 500));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

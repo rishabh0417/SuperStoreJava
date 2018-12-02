@@ -7,27 +7,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#checkout" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.EndUserCartViewController">
    <children>
       <Button layoutX="489.0" layoutY="324.0" mnemonicParsing="false" style="-fx-border-color: #000000; -fx-background-color: #ffffff; -fx-background-insets: 0 0 0 0;" text="Checkout">
          <font>
             <Font size="16.0" />
          </font></Button>
-      <ListView layoutX="23.0" layoutY="70.0" prefHeight="293.0" prefWidth="365.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
+      <ListView fx:id="disp_cart" layoutX="23.0" layoutY="70.0" prefHeight="293.0" prefWidth="365.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
       <Label layoutX="23.0" layoutY="24.0" text="Cart">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Button layoutX="400.0" layoutY="324.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-background-insets: 0 0 0 0;" text="Remove">
+      <Button layoutX="400.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#remove" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-background-insets: 0 0 0 0;" text="Remove">
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Button layoutX="400.0" layoutY="116.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-background-insets: 0 0 0 0;" text="Update">
+      <Button layoutX="400.0" layoutY="116.0" mnemonicParsing="false" onMouseClicked="#update" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-background-insets: 0 0 0 0;" text="Update">
          <font>
             <Font size="16.0" />
          </font></Button>
-      <TextField layoutX="400.0" layoutY="70.0" prefHeight="39.0" prefWidth="120.0" promptText="Quantity" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+      <TextField fx:id="quant" layoutX="400.0" layoutY="70.0" prefHeight="39.0" prefWidth="120.0" promptText="Quantity" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <font>
             <Font size="16.0" />
          </font></TextField>

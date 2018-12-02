@@ -32,11 +32,15 @@ public class DATA {
 //    data variables.
     public static String string1;
     public static String string2;
+    public static String string3;
+
+    public static Cart current_cart;
     public static int flag1;
 
     public DATA(){
         list_of_warehouseAdmins = new LinkedList<>();
         list_of_storeAdmins = new LinkedList<>();
+        current_cart = new Cart();
     }
 
 

@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.EndUserStoreBrowserViewController">
    <children>
-      <ListView layoutX="31.0" layoutY="61.0" prefHeight="292.0" prefWidth="362.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
+      <ListView fx:id="list_display" layoutX="31.0" layoutY="61.0" prefHeight="292.0" prefWidth="362.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
       <Label layoutX="31.0" layoutY="14.0" prefHeight="39.0" prefWidth="178.0" text="Store Browser">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <CheckBox layoutX="421.0" layoutY="328.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Sort">
-         <font>
-            <Font size="16.0" />
-         </font></CheckBox>
-      <Button layoutX="412.0" layoutY="61.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="Expand">
+      <Button fx:id="btn_opn" layoutX="412.0" layoutY="61.0" mnemonicParsing="false" onMouseClicked="#open_prod" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="Expand">
          <font>
             <Font size="16.0" />
          </font></Button>
