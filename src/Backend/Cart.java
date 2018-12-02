@@ -10,6 +10,10 @@ public class Cart implements Serializable {
 
     @summary String is the name of the product and the Integer is the
     */
+
+    public Cart(){
+        list_of_items = new HashMap<>();
+    }
     private HashMap<Product, Integer> list_of_items;
 
     public HashMap<Product, Integer> getList_of_items() {

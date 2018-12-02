@@ -70,6 +70,8 @@ public EndUserSearchResultsViewController(){
         try {
             int quantity = Integer.parseInt(quant_text.getText());
             if (quantity < 1) throw new Exception();
+            if (selected_product.getUnits() == 0) throw new Exception();
+            if (selected_product.getName().equalsIgnoreCase("default")) throw new Exception();
             DATA.current_cart.getList_of_items().put(selected_product, quantity);
         } catch (Exception e){
             e.printStackTrace();
