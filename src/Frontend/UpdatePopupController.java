@@ -7,6 +7,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 public class UpdatePopupController {
 
 //    data fields.
@@ -40,8 +42,20 @@ public class UpdatePopupController {
 
 
         try {
-            p.setUnits(Integer.parseInt(update_quantity.getText()));
+
             p.setCost(Integer.parseInt(update_cost.getText()));
+
+            if (DATA.isStoreAdmin){
+                List<Product> ls = DATA.cur_storeAdmin.getStore().linked_warehouse.warehouse_inventory.search(p.getName());
+//                System.out.println(ls);
+                Product parent = ls.get(0);
+                System.out.println(parent.getUnits());
+                if (parent.getUnits() < Integer.parseInt(update_quantity.getText())) throw new Exception();
+                else{
+                    parent.setUnits(parent.getUnits() - Integer.parseInt(update_quantity.getText()));
+                }
+            }
+            p.setUnits(Integer.parseInt(update_quantity.getText()));
             p.setDescription(update_description.getText());
             p.setD(Integer.parseInt(update_D.getText()));
             p.setH(Integer.parseInt(update_H.getText()));
